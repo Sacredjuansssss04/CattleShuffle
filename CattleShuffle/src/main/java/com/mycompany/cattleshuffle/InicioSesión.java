@@ -1,6 +1,13 @@
 package com.mycompany.cattleshuffle;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
 
 public class InicioSesión extends javax.swing.JFrame {
+    private Map<String, String> usuarios;
+    private String key;
+    private String user;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InicioSesión.class.getName());
 
