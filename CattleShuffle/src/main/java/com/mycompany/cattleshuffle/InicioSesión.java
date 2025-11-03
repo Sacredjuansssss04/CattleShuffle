@@ -86,6 +86,9 @@ public class InicioSesión extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 204, 204));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        userName.setBackground(new java.awt.Color(255, 255, 255));
+        userName.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        userName.setForeground(new java.awt.Color(0, 0, 0));
         userName.setText("Usuario");
         userName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +101,7 @@ public class InicioSesión extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Inicio de sesión");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -119,6 +123,9 @@ public class InicioSesión extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, -1));
 
+        password.setBackground(new java.awt.Color(255, 255, 255));
+        password.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        password.setForeground(new java.awt.Color(0, 0, 0));
         password.setText("jPasswordField1");
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +135,8 @@ public class InicioSesión extends javax.swing.JFrame {
         getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 160, -1));
 
         loginButton.setBackground(new java.awt.Color(255, 153, 153));
+        loginButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        loginButton.setForeground(new java.awt.Color(0, 0, 0));
         loginButton.setText("Iniciar sesión");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,6 +149,8 @@ public class InicioSesión extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         newRegister.setBackground(new java.awt.Color(153, 204, 255));
+        newRegister.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        newRegister.setForeground(new java.awt.Color(0, 0, 0));
         newRegister.setText("Registrar nuevo usuario");
         newRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +159,7 @@ public class InicioSesión extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Cattle Shuffle");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -168,7 +180,7 @@ public class InicioSesión extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                 .addComponent(newRegister)
                 .addGap(28, 28, 28))
         );
