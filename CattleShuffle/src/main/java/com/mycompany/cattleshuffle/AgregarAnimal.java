@@ -31,17 +31,17 @@ public class AgregarAnimal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        edad = new javax.swing.JTextField();
+        animalAge = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        peso = new javax.swing.JTextField();
+        animalWeight = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        nombre = new javax.swing.JTextField();
+        animalName = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        clase = new javax.swing.JComboBox<>();
+        animalClass = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        tipo_producto = new javax.swing.JTextField();
+        productTipe = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -75,45 +75,41 @@ public class AgregarAnimal extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(153, 204, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Agregar nuevo animal");
-
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Edad (meses):");
 
-        edad.setBackground(new java.awt.Color(255, 255, 255));
-        edad.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        edad.setForeground(new java.awt.Color(0, 0, 0));
+        animalAge.setBackground(new java.awt.Color(255, 255, 255));
+        animalAge.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        animalAge.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Peso (kg):");
 
-        peso.setBackground(new java.awt.Color(255, 255, 255));
-        peso.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        peso.setForeground(new java.awt.Color(0, 0, 0));
+        animalWeight.setBackground(new java.awt.Color(255, 255, 255));
+        animalWeight.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        animalWeight.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Nombre:");
 
-        nombre.setBackground(new java.awt.Color(255, 255, 255));
-        nombre.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        nombre.setForeground(new java.awt.Color(0, 0, 0));
+        animalName.setBackground(new java.awt.Color(255, 255, 255));
+        animalName.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        animalName.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Clase:");
 
-        clase.setBackground(new java.awt.Color(255, 255, 255));
-        clase.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        clase.setForeground(new java.awt.Color(0, 0, 0));
-        clase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        clase.addActionListener(new java.awt.event.ActionListener() {
+        animalClass.setBackground(new java.awt.Color(255, 255, 255));
+        animalClass.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        animalClass.setForeground(new java.awt.Color(0, 0, 0));
+        animalClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        animalClass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                claseActionPerformed(evt);
+                animalClassActionPerformed(evt);
             }
         });
 
@@ -121,65 +117,71 @@ public class AgregarAnimal extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Tipo de producto");
 
-        tipo_producto.setBackground(new java.awt.Color(255, 255, 255));
-        tipo_producto.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        tipo_producto.setForeground(new java.awt.Color(0, 0, 0));
+        productTipe.setBackground(new java.awt.Color(255, 255, 255));
+        productTipe.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        productTipe.setForeground(new java.awt.Color(0, 0, 0));
+
+        jButton1.setBackground(new java.awt.Color(255, 153, 153));
+        jButton1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("Guardar registro");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(110, 110, 110))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addComponent(tipo_producto, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(edad)
-                            .addComponent(peso)
-                            .addComponent(nombre)
-                            .addComponent(clase, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(productTipe, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(animalAge)
+                                    .addComponent(animalWeight)
+                                    .addComponent(animalName)
+                                    .addComponent(animalClass, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addGap(71, 71, 71))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addGap(61, 61, 61)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(animalAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(animalWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(animalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
-                    .addComponent(clase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(animalClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(tipo_producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(55, Short.MAX_VALUE))
+                    .addComponent(productTipe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 430, 350));
@@ -187,9 +189,9 @@ public class AgregarAnimal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void claseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_claseActionPerformed
+    private void animalClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_animalClassActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_claseActionPerformed
+    }//GEN-LAST:event_animalClassActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,10 +219,12 @@ public class AgregarAnimal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> clase;
-    private javax.swing.JTextField edad;
+    private javax.swing.JTextField animalAge;
+    private javax.swing.JComboBox<String> animalClass;
+    private javax.swing.JTextField animalName;
+    private javax.swing.JTextField animalWeight;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -228,8 +232,6 @@ public class AgregarAnimal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField nombre;
-    private javax.swing.JTextField peso;
-    private javax.swing.JTextField tipo_producto;
+    private javax.swing.JTextField productTipe;
     // End of variables declaration//GEN-END:variables
 }

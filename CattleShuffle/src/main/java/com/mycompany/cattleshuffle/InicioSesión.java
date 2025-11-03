@@ -197,10 +197,10 @@ public class InicioSesión extends javax.swing.JFrame {
 
     private void newRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newRegisterActionPerformed
         // TODO add your handling code here: 
-        /*Registro registrito = new Registro();
-        registrito.setVisible(true);
-        this.setVisible(false);
-        */
+        Registro ventana = new Registro();
+        ventana.setVisible(true);
+        ventana.setLocationRelativeTo(null);
+        this.dispose();
                
     }//GEN-LAST:event_newRegisterActionPerformed
 
