@@ -7,7 +7,7 @@ import java.awt.Color;
 import javax.swing.SwingUtilities;
 
 public class InicioSesión extends javax.swing.JFrame {
-    private Map<String, String> usuarios;
+    private Map<String, String> usuarios = new HashMap();
     private String key;
     private String user;
     
@@ -16,54 +16,54 @@ public class InicioSesión extends javax.swing.JFrame {
     public InicioSesión() {
         initComponents();
         SwingUtilities.invokeLater(() -> {
-        usuario.setFocusable(true);
-        usuario.requestFocusInWindow();
+        userName.setFocusable(true);
+        userName.requestFocusInWindow();
         this.requestFocus(); 
     });
     
-        usuario.setText("Usuario");
-        usuario.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14));
-        usuario.setForeground(Color.BLACK);
+        userName.setText("Usuario");
+        userName.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14));
+        userName.setForeground(Color.BLACK);
         
-        jPasswordField1.setText("Contraseña");
-        jPasswordField1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14));
-        jPasswordField1.setForeground(Color.BLACK);
-        jPasswordField1.setEchoChar((char) 0);
+        password.setText("Contraseña");
+        password.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14));
+        password.setForeground(Color.BLACK);
+        password.setEchoChar((char) 0);
 
-        usuario.addFocusListener(new java.awt.event.FocusAdapter() {
+        userName.addFocusListener(new java.awt.event.FocusAdapter() {
             
             @Override
             public void focusGained(java.awt.event.FocusEvent evt) {
-                if (String.valueOf(usuario.getText()).equals("Usuario")) {
-                    usuario.setText("");
-                    usuario.setForeground(Color.BLACK);
+                if (String.valueOf(userName.getText()).equals("Usuario")) {
+                    userName.setText("");
+                    userName.setForeground(Color.BLACK);
                 }
             }
 
             @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
-                if (String.valueOf(usuario.getText()).isEmpty()) {
-                    usuario.setText("Usuario");
-                    usuario.setForeground(Color.BLACK);
+                if (String.valueOf(userName.getText()).isEmpty()) {
+                    userName.setText("Usuario");
+                    userName.setForeground(Color.BLACK);
                 }
             }
             });
-            jPasswordField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            password.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent evt) {
-                if (String.valueOf(jPasswordField1.getPassword()).equals("Contraseña")) {
-                    jPasswordField1.setText("");
-                    jPasswordField1.setForeground(Color.BLACK);
-                    jPasswordField1.setEchoChar('•'); 
+                if (String.valueOf(password.getPassword()).equals("Contraseña")) {
+                    password.setText("");
+                    password.setForeground(Color.BLACK);
+                    password.setEchoChar('•'); 
                 }
             }
 
             @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
-                if (String.valueOf(jPasswordField1.getPassword()).isEmpty()) {
-                    jPasswordField1.setText("Contraseña");
-                    jPasswordField1.setForeground(Color.BLACK);
-                    jPasswordField1.setEchoChar((char) 0); 
+                if (String.valueOf(password.getPassword()).isEmpty()) {
+                    password.setText("Contraseña");
+                    password.setForeground(Color.BLACK);
+                    password.setEchoChar((char) 0); 
                 }
             }
             });
@@ -73,34 +73,31 @@ public class InicioSesión extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        usuario = new javax.swing.JTextField();
+        userName = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        password = new javax.swing.JPasswordField();
+        loginButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        registro = new javax.swing.JButton();
+        newRegister = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 204, 204));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        usuario.setBackground(new java.awt.Color(255, 255, 255));
-        usuario.setForeground(new java.awt.Color(0, 0, 0));
-        usuario.setText("Usuario");
-        usuario.addActionListener(new java.awt.event.ActionListener() {
+        userName.setText("Usuario");
+        userName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuarioActionPerformed(evt);
+                userNameActionPerformed(evt);
             }
         });
-        getContentPane().add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 160, -1));
+        getContentPane().add(userName, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 160, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Inicio de sesión");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -122,40 +119,35 @@ public class InicioSesión extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, -1));
 
-        jPasswordField1.setBackground(new java.awt.Color(255, 255, 255));
-        jPasswordField1.setForeground(new java.awt.Color(0, 0, 0));
-        jPasswordField1.setText("jPasswordField1");
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        password.setText("jPasswordField1");
+        password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                passwordActionPerformed(evt);
             }
         });
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 160, -1));
+        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 160, -1));
 
-        jButton1.setBackground(new java.awt.Color(255, 153, 153));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Iniciar sesión");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        loginButton.setBackground(new java.awt.Color(255, 153, 153));
+        loginButton.setText("Iniciar sesión");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                loginButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
+        getContentPane().add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        registro.setBackground(new java.awt.Color(153, 204, 255));
-        registro.setForeground(new java.awt.Color(0, 0, 0));
-        registro.setText("Registrar nuevo usuario");
-        registro.addActionListener(new java.awt.event.ActionListener() {
+        newRegister.setBackground(new java.awt.Color(153, 204, 255));
+        newRegister.setText("Registrar nuevo usuario");
+        newRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registroActionPerformed(evt);
+                newRegisterActionPerformed(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Cattle Shuffle");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -164,7 +156,7 @@ public class InicioSesión extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(91, Short.MAX_VALUE)
-                .addComponent(registro, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(newRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(87, 87, 87))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(138, 138, 138)
@@ -177,7 +169,7 @@ public class InicioSesión extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
-                .addComponent(registro)
+                .addComponent(newRegister)
                 .addGap(28, 28, 28))
         );
 
@@ -186,24 +178,29 @@ public class InicioSesión extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usuarioActionPerformed
+    private void userNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameActionPerformed
+        this.user = userName.getText();
+        System.out.println(this.user);
+    }//GEN-LAST:event_userNameActionPerformed
 
-    private void registroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroActionPerformed
+    private void newRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newRegisterActionPerformed
         // TODO add your handling code here: 
-        Registro registrito = new Registro();
+        /*Registro registrito = new Registro();
         registrito.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_registroActionPerformed
+        */
+               
+    }//GEN-LAST:event_newRegisterActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+        this.key = password.getText();
+        System.out.println(this.key);
+    }//GEN-LAST:event_passwordActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here: INICIO DE SESION REALIZADO
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        usuarios.put(this.key, this.user);
+        System.out.println(usuarios);
+    }//GEN-LAST:event_loginButtonActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -228,13 +225,13 @@ public class InicioSesión extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JButton registro;
-    private javax.swing.JTextField usuario;
+    private javax.swing.JButton loginButton;
+    private javax.swing.JButton newRegister;
+    private javax.swing.JPasswordField password;
+    private javax.swing.JTextField userName;
     // End of variables declaration//GEN-END:variables
 }
