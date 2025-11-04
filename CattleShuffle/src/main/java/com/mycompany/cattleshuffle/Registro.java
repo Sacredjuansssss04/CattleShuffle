@@ -4,6 +4,8 @@
  */
 package com.mycompany.cattleshuffle;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author adria
@@ -39,9 +41,9 @@ public class Registro extends javax.swing.JFrame {
         cellphoneLabel = new javax.swing.JLabel();
         registerButton = new javax.swing.JButton();
         userName = new javax.swing.JTextField();
-        password = new javax.swing.JTextField();
-        confirmPassword = new javax.swing.JTextField();
         cellphone = new javax.swing.JTextField();
+        password = new javax.swing.JPasswordField();
+        confirmPassword = new javax.swing.JPasswordField();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -108,14 +110,16 @@ public class Registro extends javax.swing.JFrame {
         userName.setBackground(new java.awt.Color(255, 255, 255));
         userName.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
 
+        cellphone.setBackground(new java.awt.Color(255, 255, 255));
+        cellphone.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+
         password.setBackground(new java.awt.Color(255, 255, 255));
         password.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        password.setForeground(new java.awt.Color(0, 0, 0));
 
         confirmPassword.setBackground(new java.awt.Color(255, 255, 255));
         confirmPassword.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-
-        cellphone.setBackground(new java.awt.Color(255, 255, 255));
-        cellphone.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        confirmPassword.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -125,6 +129,11 @@ public class Registro extends javax.swing.JFrame {
                 .addGap(0, 149, Short.MAX_VALUE)
                 .addComponent(registerTitle)
                 .addGap(145, 145, 145))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(registerButton)
+                .addGap(183, 183, 183))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(135, 135, 135)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -133,15 +142,10 @@ public class Registro extends javax.swing.JFrame {
                     .addComponent(userLabel)
                     .addComponent(userName, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
                     .addComponent(passwordLabel)
+                    .addComponent(cellphone)
                     .addComponent(password)
-                    .addComponent(confirmPassword)
-                    .addComponent(cellphone))
+                    .addComponent(confirmPassword))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(registerButton)
-                .addGap(183, 183, 183))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,17 +161,17 @@ public class Registro extends javax.swing.JFrame {
                 .addComponent(passwordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(17, 17, 17)
                 .addComponent(confirmPasswordLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(confirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(17, 17, 17)
                 .addComponent(cellphoneLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cellphone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(registerButton)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 430));
@@ -179,6 +183,25 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
         /*aca se debe añadir lo de verificar que los campos esten diligenciados para que 
         el boton se dirija de nuevo al inicio de sesion*/
+        String usuario = userName.getText().trim();
+        String contraseña = new String(password.getText().trim());
+        String confirmarContraseña = new String(confirmPassword.getText().trim());
+        String telefono = cellphone.getText().trim();
+        
+        if(usuario.isEmpty()||contraseña.isEmpty()||confirmarContraseña.isEmpty()||telefono.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Diligencia todos los campos antes de enviar", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        return;
+        }
+        
+        if(!contraseña.equals(confirmarContraseña)){
+            JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+        }
+        
+        if(!telefono.matches("\\d{10,}")){
+            JOptionPane.showMessageDialog(this, "El numero de teléfono debe contener solo numeros y 10 digitos", "Teléfono inválido", JOptionPane.ERROR_MESSAGE);
+        return;
+        }
         
         InicioSesión inicio = new InicioSesión();
         inicio.setVisible(true);
@@ -214,12 +237,12 @@ public class Registro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cellphone;
     private javax.swing.JLabel cellphoneLabel;
-    private javax.swing.JTextField confirmPassword;
+    private javax.swing.JPasswordField confirmPassword;
     private javax.swing.JLabel confirmPasswordLabel;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField password;
+    private javax.swing.JPasswordField password;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JButton registerButton;
     private javax.swing.JLabel registerLabel;
