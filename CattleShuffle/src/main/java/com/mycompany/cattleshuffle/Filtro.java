@@ -1,7 +1,7 @@
 package com.mycompany.cattleshuffle;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
-import javax.swing.table.JTableHeader;
 
 public class Filtro extends javax.swing.JFrame {
     
@@ -9,15 +9,15 @@ public class Filtro extends javax.swing.JFrame {
 
     public Filtro() {
         initComponents();
+        
         idAnimal.setText("Buscar");
         idAnimal.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14));
         idAnimal.setForeground(Color.BLACK);
-        JTableHeader header = filterTable.getTableHeader();
-        header.setBackground(new java.awt.Color(122,196,92));
-        header.setForeground(Color.BLACK);
         
         resultsText.setText("Resultados: ");
         resultsText.setEditable(false);
+        
+        
         
         
     }
@@ -36,12 +36,12 @@ public class Filtro extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         idAnimal = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        filterTable = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         resultsText = new javax.swing.JTextArea();
         selectButton = new javax.swing.JButton();
+        typeFilter = new javax.swing.JComboBox<>();
+        filterButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -79,7 +79,7 @@ public class Filtro extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("ID Animal:");
 
-        idAnimal.setBackground(new java.awt.Color(204, 204, 255));
+        idAnimal.setBackground(new java.awt.Color(153, 204, 255));
         idAnimal.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         idAnimal.setForeground(new java.awt.Color(0, 0, 0));
         idAnimal.setText("Buscar");
@@ -88,26 +88,6 @@ public class Filtro extends javax.swing.JFrame {
                 idAnimalActionPerformed(evt);
             }
         });
-
-        filterTable.setBackground(new java.awt.Color(255, 255, 255));
-        filterTable.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        filterTable.setForeground(new java.awt.Color(0, 0, 0));
-        filterTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Filtrar por tipo", "Title 2", "Title 3"
-            }
-        ));
-        filterTable.setSelectionBackground(new java.awt.Color(153, 255, 102));
-        jScrollPane1.setViewportView(filterTable);
-        if (filterTable.getColumnModel().getColumnCount() > 0) {
-            filterTable.getColumnModel().getColumn(1).setResizable(false);
-        }
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -130,27 +110,43 @@ public class Filtro extends javax.swing.JFrame {
             }
         });
 
+        typeFilter.setBackground(new java.awt.Color(255, 255, 255));
+        typeFilter.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        typeFilter.setForeground(new java.awt.Color(0, 0, 0));
+        typeFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo", "producción de bienes", "Reproducción", "Engorde" }));
+
+        filterButton.setBackground(new java.awt.Color(153, 204, 255));
+        filterButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        filterButton.setForeground(new java.awt.Color(0, 0, 0));
+        filterButton.setText("Filtrar");
+        filterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                filterButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(idAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(typeFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(88, 88, 88)
+                            .addComponent(filterButton))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGap(184, 184, 184)
+                            .addComponent(idAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
-                        .addComponent(selectButton)
-                        .addGap(77, 77, 77))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(selectButton))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,15 +155,17 @@ public class Filtro extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(idAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(typeFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(filterButton))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(selectButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 440, 380));
@@ -190,6 +188,11 @@ public class Filtro extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_selectButtonActionPerformed
+
+    private void filterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterButtonActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_filterButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,16 +220,16 @@ public class Filtro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable filterTable;
+    private javax.swing.JButton filterButton;
     private javax.swing.JTextField idAnimal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea resultsText;
     private javax.swing.JButton selectButton;
+    private javax.swing.JComboBox<String> typeFilter;
     // End of variables declaration//GEN-END:variables
 }
