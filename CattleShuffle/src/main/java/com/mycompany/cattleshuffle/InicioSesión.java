@@ -16,9 +16,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 public class InicioSesión extends javax.swing.JFrame {
-    private Map<String, String> usuarios = new HashMap();
-    private String key;
-    private String user;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InicioSesión.class.getName());
 
@@ -200,8 +197,7 @@ public class InicioSesión extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void userNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameActionPerformed
-        this.user = userName.getText();
-        System.out.println(this.user);
+        
     }//GEN-LAST:event_userNameActionPerformed
 
     private void newRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newRegisterActionPerformed
@@ -214,13 +210,11 @@ public class InicioSesión extends javax.swing.JFrame {
     }//GEN-LAST:event_newRegisterActionPerformed
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
-        this.key = password.getText();
-        System.out.println(this.key);
+        
     }//GEN-LAST:event_passwordActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        usuarios.put(this.key, this.user);
-        System.out.println(usuarios);
+
     }//GEN-LAST:event_loginButtonActionPerformed
 
     public static void main(String args[]) {

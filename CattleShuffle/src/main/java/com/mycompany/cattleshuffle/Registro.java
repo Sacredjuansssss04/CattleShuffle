@@ -13,6 +13,11 @@ import javax.swing.JOptionPane;
 public class Registro extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Registro.class.getName());
+    private String key;
+    private String user;
+    private String phoneNumber;
+    private boolean verify;
+    private UserData newUser;
 
     /**
      * Creates new form Registro
@@ -41,7 +46,7 @@ public class Registro extends javax.swing.JFrame {
         cellphoneLabel = new javax.swing.JLabel();
         registerButton = new javax.swing.JButton();
         userName = new javax.swing.JTextField();
-        cellphone = new javax.swing.JTextField();
+        phone = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         confirmPassword = new javax.swing.JPasswordField();
 
@@ -57,7 +62,6 @@ public class Registro extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         registerLabel.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        registerLabel.setForeground(new java.awt.Color(0, 0, 0));
         registerLabel.setText("Registro de usuario");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -78,28 +82,22 @@ public class Registro extends javax.swing.JFrame {
         );
 
         registerTitle.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        registerTitle.setForeground(new java.awt.Color(0, 0, 0));
         registerTitle.setText("Registro de usuario");
 
         userLabel.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        userLabel.setForeground(new java.awt.Color(0, 0, 0));
         userLabel.setText("Usuario");
 
         passwordLabel.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        passwordLabel.setForeground(new java.awt.Color(0, 0, 0));
         passwordLabel.setText("Contraseña");
 
         confirmPasswordLabel.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        confirmPasswordLabel.setForeground(new java.awt.Color(0, 0, 0));
         confirmPasswordLabel.setText("Confirmar contraseña");
 
         cellphoneLabel.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        cellphoneLabel.setForeground(new java.awt.Color(0, 0, 0));
         cellphoneLabel.setText("Telefono celular:");
 
         registerButton.setBackground(new java.awt.Color(153, 255, 102));
         registerButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        registerButton.setForeground(new java.awt.Color(0, 0, 0));
         registerButton.setText("Registrar");
         registerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,19 +105,33 @@ public class Registro extends javax.swing.JFrame {
             }
         });
 
-        userName.setBackground(new java.awt.Color(255, 255, 255));
         userName.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        userName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userNameActionPerformed(evt);
+            }
+        });
 
-        cellphone.setBackground(new java.awt.Color(255, 255, 255));
-        cellphone.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        phone.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        phone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phoneActionPerformed(evt);
+            }
+        });
 
-        password.setBackground(new java.awt.Color(255, 255, 255));
         password.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        password.setForeground(new java.awt.Color(0, 0, 0));
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
 
-        confirmPassword.setBackground(new java.awt.Color(255, 255, 255));
         confirmPassword.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        confirmPassword.setForeground(new java.awt.Color(0, 0, 0));
+        confirmPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmPasswordActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -142,7 +154,7 @@ public class Registro extends javax.swing.JFrame {
                     .addComponent(userLabel)
                     .addComponent(userName, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
                     .addComponent(passwordLabel)
-                    .addComponent(cellphone)
+                    .addComponent(phone)
                     .addComponent(password)
                     .addComponent(confirmPassword))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -168,7 +180,7 @@ public class Registro extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addComponent(cellphoneLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cellphone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(registerButton)
                 .addContainerGap(33, Short.MAX_VALUE))
@@ -180,13 +192,15 @@ public class Registro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        // TODO add your handling code here:
         /*aca se debe añadir lo de verificar que los campos esten diligenciados para que 
         el boton se dirija de nuevo al inicio de sesion*/
+        this.newUser = new UserData(this.user, this.phoneNumber, "nada@ymail");
+        this.newUser.hashed_password(this.key);
+        System.out.println(this.newUser);
         String usuario = userName.getText().trim();
         String contraseña = new String(password.getText().trim());
         String confirmarContraseña = new String(confirmPassword.getText().trim());
-        String telefono = cellphone.getText().trim();
+        String telefono = phone.getText().trim();
         
         if(usuario.isEmpty()||contraseña.isEmpty()||confirmarContraseña.isEmpty()||telefono.isEmpty()){
             JOptionPane.showMessageDialog(this, "Diligencia todos los campos antes de enviar", "Advertencia", JOptionPane.WARNING_MESSAGE);
@@ -208,6 +222,27 @@ public class Registro extends javax.swing.JFrame {
         inicio.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_registerButtonActionPerformed
+
+    private void userNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameActionPerformed
+        this.user = userName.getText();
+        System.out.println(this.user);        // TODO add your handling code here:
+    }//GEN-LAST:event_userNameActionPerformed
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+        this.key = password.getText();
+        System.out.println(this.key);        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordActionPerformed
+
+    private void confirmPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPasswordActionPerformed
+        if (confirmPassword.getText().equals(this.key)){
+            this.verify = true;
+        }
+    }//GEN-LAST:event_confirmPasswordActionPerformed
+
+    private void phoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneActionPerformed
+        this.phoneNumber = phone.getText();
+        System.out.println(this.phoneNumber);
+    }//GEN-LAST:event_phoneActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,7 +270,6 @@ public class Registro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField cellphone;
     private javax.swing.JLabel cellphoneLabel;
     private javax.swing.JPasswordField confirmPassword;
     private javax.swing.JLabel confirmPasswordLabel;
@@ -244,6 +278,7 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField password;
     private javax.swing.JLabel passwordLabel;
+    private javax.swing.JTextField phone;
     private javax.swing.JButton registerButton;
     private javax.swing.JLabel registerLabel;
     private javax.swing.JLabel registerTitle;
