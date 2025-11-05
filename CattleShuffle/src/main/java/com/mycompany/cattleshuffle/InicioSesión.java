@@ -1,19 +1,6 @@
 package com.mycompany.cattleshuffle;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
 import java.awt.Color;
 import javax.swing.SwingUtilities;
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 
 public class InicioSesión extends javax.swing.JFrame {
     
