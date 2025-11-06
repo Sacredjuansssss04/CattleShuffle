@@ -233,7 +233,7 @@ public class Registro extends javax.swing.JFrame {
         }
         
         String correo = userEmail.getText();
-        if(!correo_valido(correo)){
+        if(correo_valido(correo)){
                 JOptionPane.showMessageDialog(this, "Ingrese un correo electrónico válido", "Correo inválido", JOptionPane.ERROR_MESSAGE);
                 return;
         }
