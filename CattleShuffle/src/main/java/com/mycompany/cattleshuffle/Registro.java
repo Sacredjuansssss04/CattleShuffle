@@ -1,6 +1,8 @@
 package com.mycompany.cattleshuffle;
 import java.util.*;
 import javax.swing.JOptionPane;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 public class Registro extends javax.swing.JFrame {
     
@@ -14,6 +16,14 @@ public class Registro extends javax.swing.JFrame {
 
     public Registro() {
         initComponents();
+    }
+    
+    //validar correo
+    private boolean correo_valido(String correo){
+        String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(correo);
+        return matcher.matches();
     }
 
     @SuppressWarnings("unchecked")
@@ -34,6 +44,8 @@ public class Registro extends javax.swing.JFrame {
         phone = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         confirmPassword = new javax.swing.JPasswordField();
+        emailLabel = new javax.swing.JLabel();
+        userEmail = new javax.swing.JTextField();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -118,6 +130,19 @@ public class Registro extends javax.swing.JFrame {
             }
         });
 
+        emailLabel.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        emailLabel.setForeground(new java.awt.Color(0, 0, 0));
+        emailLabel.setText("Correo electrónico");
+
+        userEmail.setBackground(new java.awt.Color(255, 255, 255));
+        userEmail.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        userEmail.setForeground(new java.awt.Color(0, 0, 0));
+        userEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userEmailActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -130,10 +155,11 @@ public class Registro extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(registerButton)
-                .addGap(183, 183, 183))
+                .addGap(189, 189, 189))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(135, 135, 135)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(emailLabel)
                     .addComponent(cellphoneLabel)
                     .addComponent(confirmPasswordLabel)
                     .addComponent(userLabel)
@@ -141,7 +167,8 @@ public class Registro extends javax.swing.JFrame {
                     .addComponent(passwordLabel)
                     .addComponent(phone)
                     .addComponent(password)
-                    .addComponent(confirmPassword))
+                    .addComponent(confirmPassword)
+                    .addComponent(userEmail))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -155,23 +182,27 @@ public class Registro extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(emailLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(userEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(passwordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
+                .addGap(18, 18, 18)
                 .addComponent(confirmPasswordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(confirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
-                .addComponent(cellphoneLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(cellphoneLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
                 .addComponent(registerButton)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 430));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -201,6 +232,12 @@ public class Registro extends javax.swing.JFrame {
         return;
         }
         
+        String correo = userEmail.getText();
+        if(!correo_valido(correo)){
+                JOptionPane.showMessageDialog(this, "Ingrese un correo electrónico válido", "Correo inválido", JOptionPane.ERROR_MESSAGE);
+                return;
+        }
+        
         InicioSesión inicio = new InicioSesión();
         inicio.setVisible(true);
         inicio.setLocationRelativeTo(null);
@@ -227,6 +264,11 @@ public class Registro extends javax.swing.JFrame {
         this.phoneNumber = phone.getText();
         System.out.println(this.phoneNumber);
     }//GEN-LAST:event_phoneActionPerformed
+
+    private void userEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userEmailActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_userEmailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,6 +299,7 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel cellphoneLabel;
     private javax.swing.JPasswordField confirmPassword;
     private javax.swing.JLabel confirmPasswordLabel;
+    private javax.swing.JLabel emailLabel;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -266,6 +309,7 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JButton registerButton;
     private javax.swing.JLabel registerLabel;
     private javax.swing.JLabel registerTitle;
+    private javax.swing.JTextField userEmail;
     private javax.swing.JLabel userLabel;
     private javax.swing.JTextField userName;
     // End of variables declaration//GEN-END:variables

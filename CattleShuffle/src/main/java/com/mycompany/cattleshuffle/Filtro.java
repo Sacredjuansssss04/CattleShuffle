@@ -57,17 +57,17 @@ public class Filtro extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(211, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(201, 201, 201)
                 .addComponent(jLabel1)
-                .addGap(192, 192, 192))
+                .addContainerGap(202, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 60));
@@ -114,6 +114,11 @@ public class Filtro extends javax.swing.JFrame {
         typeFilter.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         typeFilter.setForeground(new java.awt.Color(0, 0, 0));
         typeFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo", "producción de bienes", "Reproducción", "Engorde" }));
+        typeFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                typeFilterActionPerformed(evt);
+            }
+        });
 
         filterButton.setBackground(new java.awt.Color(153, 204, 255));
         filterButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
@@ -193,6 +198,10 @@ public class Filtro extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_filterButtonActionPerformed
+
+    private void typeFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeFilterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_typeFilterActionPerformed
 
     /**
      * @param args the command line arguments
