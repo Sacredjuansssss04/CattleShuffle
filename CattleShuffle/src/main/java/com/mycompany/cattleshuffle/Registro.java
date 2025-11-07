@@ -8,7 +8,7 @@ import java.io.*;
 public class Registro extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Registro.class.getName());
-    private static final Path finalRoute = Paths.get("data/usuarios.json");
+    private static final String finalRoute = "data/usuarios.json";
     private String key;
     private String user;
     private String phoneNumber;
@@ -183,16 +183,20 @@ public class Registro extends javax.swing.JFrame {
         /*aca se debe añadir lo de verificar que los campos esten diligenciados para que 
         el boton se dirija de nuevo al inicio de sesion*/
         this.newUser = new UserData(this.user, this.phoneNumber, "nada@ymail");
-        //Path route = finalRoute;
+        this.newUser.hashed_password(this.key);
+        String route = finalRoute;
+        Path trueRoute = Routes.exact_route(route);
         try {
-            FileManager.save_user(newUser, finalRoute, verify);
+            List<UserData> usuarios = FileManager.read_user(trueRoute.toString());
+            usuarios.add(newUser);
+            FileManager.save_user(usuarios, trueRoute, verify);
         } catch (IOException e)  {
-            System.err.println("Error al escribir el archivo: " + e.getMessage());
+            e.printStackTrace();
         }
         try {
-            FileManager.read_user(user);
+            System.out.println(FileManager.read_user(finalRoute));
         } catch (IOException e)  {
-            System.err.println("Error al escribir el archivo: " + e.getMessage());
+            e.printStackTrace();
         }
         String usuario = userName.getText().trim();
         String contraseña = new String(password.getText().trim());

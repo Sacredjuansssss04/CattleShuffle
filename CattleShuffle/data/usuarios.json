@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Juanes",
+    "password": "$2a$12$YY1GbzfGfzURyBPzx587quAD0Ro9COdjGyhVx1e0a2jetb11PWMFK",
+    "numberPhone": "1234567890",
+    "email": "nada@ymail"
+  },
+  {
+    "name": "Karol",
+    "password": "$2a$12$5KpuDopXZqs7B1srclgjP.176X79oFYi9l5iIUiBF29Un0qoleqNS",
+    "numberPhone": "0987654321",
+    "email": "nada@ymail"
+  },
+  {
+    "name": "Juanes",
+    "password": "$2a$12$9t5lp1h/tPAxSOLAaOtaFOGV1UkjWEMNqIbetY0UXLUjgGp1O2OUS",
+    "numberPhone": "1234567890",
+    "email": "nada@ymail"
+  }
+]
