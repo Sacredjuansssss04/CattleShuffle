@@ -201,7 +201,10 @@ public class InicioSesión extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-
+        MenuPrincipal ventana = new MenuPrincipal(); //Aca ya esta lo de iniciar sesion ir a la ventana de agregar animal
+        ventana.setVisible(true);
+        ventana.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_loginButtonActionPerformed
 
     public static void main(String args[]) {
