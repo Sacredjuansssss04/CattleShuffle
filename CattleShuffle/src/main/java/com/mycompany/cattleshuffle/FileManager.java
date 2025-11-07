@@ -6,13 +6,21 @@ import java.lang.reflect.Type;
 import java.nio.file.*;
 import java.util.*;
 import java.nio.file.Path;
+import java.nio.charset.StandardCharsets;
 
 public class FileManager {
     private static final Gson json = new GsonBuilder().setPrettyPrinting().create();
     
-    public static void save_user(List<UserData> users, String route)throws IOException {
+    public static void save_user(UserData users, Path route, boolean append)throws IOException {
         String toJson = json.toJson(users);
-        Files.write(Paths.get(route), toJson.getBytes());
+        if (route.getParent() != null) Files.createDirectories(route);
+        if(append){
+            Files.write(route, toJson.getBytes(StandardCharsets.UTF_8),
+            StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+        } else {
+            Files.write(route, toJson.getBytes(StandardCharsets.UTF_8),
+            StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+        }    
     }
     
     public static List<UserData> read_user(String route) throws IOException {

@@ -1,16 +1,19 @@
 package com.mycompany.cattleshuffle;
 import java.util.*;
 import javax.swing.JOptionPane;
+import java.nio.file.Path;
+import java.nio.file.*;
+import java.io.*;
 
 public class Registro extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Registro.class.getName());
+    private static final Path finalRoute = Paths.get("data/usuarios.json");
     private String key;
     private String user;
     private String phoneNumber;
     private boolean verify;
     private UserData newUser;
-    private List<UserData> users;
 
     public Registro() {
         initComponents();
@@ -180,7 +183,17 @@ public class Registro extends javax.swing.JFrame {
         /*aca se debe añadir lo de verificar que los campos esten diligenciados para que 
         el boton se dirija de nuevo al inicio de sesion*/
         this.newUser = new UserData(this.user, this.phoneNumber, "nada@ymail");
-        this.users.add(newUser);
+        //Path route = finalRoute;
+        try {
+            FileManager.save_user(newUser, finalRoute, verify);
+        } catch (IOException e)  {
+            System.err.println("Error al escribir el archivo: " + e.getMessage());
+        }
+        try {
+            FileManager.read_user(user);
+        } catch (IOException e)  {
+            System.err.println("Error al escribir el archivo: " + e.getMessage());
+        }
         String usuario = userName.getText().trim();
         String contraseña = new String(password.getText().trim());
         String confirmarContraseña = new String(confirmPassword.getText().trim());
