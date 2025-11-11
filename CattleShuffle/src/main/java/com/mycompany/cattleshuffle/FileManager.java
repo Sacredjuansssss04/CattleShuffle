@@ -31,5 +31,29 @@ public class FileManager {
         Type type = new TypeToken<List<UserData>>(){}.getType();
         return json.fromJson(content, type);
     }
-    // Debo cambiar absolutamente todo. att: Juan
+    
+    public static boolean delete_user(Path route, String Name)throws IOException {
+        if (!Files.exists(route)) return false;
+        
+        String content = Files.readString(route, StandardCharsets.UTF_8);
+        Type type = new TypeToken<List<UserData>>(){}.getType();
+        List<UserData> users = new Gson().fromJson(content, type);
+        
+        List<UserData> updateList = new ArrayList<>();
+                
+        for (UserData user: users){
+            if(!user.getName().equalsIgnoreCase(Name)){
+                updateList.add(user);
+            }
+        }
+        if (updateList.size() == users.size()){
+            return false;
+        }
+        
+        Gson json = new GsonBuilder().setPrettyPrinting().create();
+        String toJson = json.toJson(updateList);
+        Files.write(route, toJson.getBytes(StandardCharsets.UTF_8), StandardOpenOption.TRUNCATE_EXISTING);
+        return true;
+        
+    }
 }
