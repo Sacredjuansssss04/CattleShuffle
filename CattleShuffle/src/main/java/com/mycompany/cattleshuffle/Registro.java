@@ -12,7 +12,7 @@ public class Registro extends javax.swing.JFrame {
     private String key;
     private String user;
     private String phoneNumber;
-    private boolean verify;
+    private boolean verify = true;
     private UserData newUser;
 
     public Registro() {
@@ -184,15 +184,16 @@ public class Registro extends javax.swing.JFrame {
         el boton se dirija de nuevo al inicio de sesion*/
         this.newUser = new UserData(this.user, this.phoneNumber, "nada@ymail");
         this.newUser.hashed_password(this.key);
-
+        List<UserData> users = new ArrayList();
+        users.add(this.newUser);
         Path trueRoute = Routes.exact_route(finalRoute);
         try {
-            FileManager.save_user(this.newUser, trueRoute, verify);
+            FileManager.save_user(users, trueRoute, verify);
         } catch (IOException e)  {
             e.printStackTrace();
         }
         try {
-            System.out.println(FileManager.read_user(finalRoute));
+            System.out.println(FileManager.read_user(trueRoute));
         } catch (IOException e)  {
             e.printStackTrace();
         }

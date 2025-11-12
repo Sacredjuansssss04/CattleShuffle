@@ -1,37 +1,20 @@
 [
   {
     "name": "Juanes",
-    "password": "$2a$12$YY1GbzfGfzURyBPzx587quAD0Ro9COdjGyhVx1e0a2jetb11PWMFK",
+    "password": "$2a$12$bpLmTHeVhDEywMReQrvMlu57zJ3pZs3SwtPef4A65G8SXsCmekDvi",
     "numberPhone": "1234567890",
     "email": "nada@ymail"
   },
   {
     "name": "Karol",
-    "password": "$2a$12$5KpuDopXZqs7B1srclgjP.176X79oFYi9l5iIUiBF29Un0qoleqNS",
+    "password": "$2a$12$xMSBtd5st4JHdETqM7hA/eSmsWUNB5/9NH2mxfv9cfJZXLMMpclW2",
     "numberPhone": "0987654321",
     "email": "nada@ymail"
   },
   {
-    "name": "Juanes",
-    "password": "$2a$12$9t5lp1h/tPAxSOLAaOtaFOGV1UkjWEMNqIbetY0UXLUjgGp1O2OUS",
-    "numberPhone": "1234567890",
-    "email": "nada@ymail"
-  },
-  {
-    "password": "$2a$12$tUHKBCcClJYmRobelG7gM.IvYoELovT3ClmuefMFFgHreCeyQOoKW",
-    "email": "nada@ymail"
-  },
-  {
-    "password": "$2a$12$CXNFDm36pq/VSM/MMT/s/.Dc4jQOQMKU7TTKS1DIf1josEJOLA/J.",
-    "email": "nada@ymail"
-  },
-  {
-    "password": "$2a$12$HLPjpUHHnKuz8zYqsH0DyuJhy1lVWuTw6LrD55iT55TTciLlqb9gi",
+    "name": "Omar",
+    "password": "$2a$12$VYZ486YWPN9Cd6OO97g1leBG0L7pGsqhDRvOY58CXh/7/J2pSpbzS",
+    "numberPhone": "5432109876",
     "email": "nada@ymail"
   }
-]{
-  "name": "Karol",
-  "password": "$2a$12$B.wrqBSm8hxZw3DKDnFXQ./GAMaHKrYeguWuwW5rhdUVCAfN5gWQS",
-  "numberPhone": "1234567890",
-  "email": "nada@ymail"
-}
+]
