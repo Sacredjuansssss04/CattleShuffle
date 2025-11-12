@@ -5,6 +5,8 @@ import javax.swing.SwingUtilities;
 public class InicioSesión extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InicioSesión.class.getName());
+    private String userToVerify;
+    private String passwordToVerify;
 
     public InicioSesión() {
         initComponents();
@@ -184,7 +186,7 @@ public class InicioSesión extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void userNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameActionPerformed
-        
+        this.userToVerify = userName.getText();
     }//GEN-LAST:event_userNameActionPerformed
 
     private void newRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newRegisterActionPerformed
@@ -197,14 +199,20 @@ public class InicioSesión extends javax.swing.JFrame {
     }//GEN-LAST:event_newRegisterActionPerformed
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
-        
+        this.passwordToVerify = password.getText();
     }//GEN-LAST:event_passwordActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         MenuPrincipal ventana = new MenuPrincipal(); //Aca ya esta lo de iniciar sesion ir a la ventana de agregar animal
-        ventana.setVisible(true);
-        ventana.setLocationRelativeTo(null);
-        this.dispose();
+        try{
+            if(FileManager.verify_user(this.userToVerify, this.passwordToVerify, Routes.exact_route(Routes.getFinalRoute()))){
+                ventana.setVisible(true);
+                ventana.setLocationRelativeTo(null);
+                this.dispose();
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     public static void main(String args[]) {

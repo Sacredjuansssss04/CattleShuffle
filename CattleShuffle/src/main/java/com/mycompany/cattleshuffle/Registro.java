@@ -8,7 +8,6 @@ import java.io.*;
 public class Registro extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Registro.class.getName());
-    private static final String finalRoute = "data/usuarios.json";
     private String key;
     private String user;
     private String phoneNumber;
@@ -186,7 +185,7 @@ public class Registro extends javax.swing.JFrame {
         this.newUser.hashed_password(this.key);
         List<UserData> users = new ArrayList();
         users.add(this.newUser);
-        Path trueRoute = Routes.exact_route(finalRoute);
+        Path trueRoute = Routes.exact_route(Routes.getFinalRoute());
         try {
             FileManager.save_user(users, trueRoute, verify);
         } catch (IOException e)  {
