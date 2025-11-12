@@ -16,5 +16,15 @@
     "password": "$2a$12$VYZ486YWPN9Cd6OO97g1leBG0L7pGsqhDRvOY58CXh/7/J2pSpbzS",
     "numberPhone": "5432109876",
     "email": "nada@ymail"
+  },
+  {
+    "name": "toronja",
+    "password": "$2a$12$c5PMy7nH2bsd0hoPWJAXNeIcv6tQcuduWSL85I2wuTLr3DjCZSXCe",
+    "numberPhone": "0987654312",
+    "email": "nada@ymail"
+  },
+  {
+    "password": "$2a$12$.sphWpTlFsQathH8HW8auuaRLOQiwz7bLdn2..wB199NLbmc5CVJm",
+    "email": "nada@ymail"
   }
 ]
