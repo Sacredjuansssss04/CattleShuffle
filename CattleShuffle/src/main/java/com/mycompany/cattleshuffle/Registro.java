@@ -184,12 +184,10 @@ public class Registro extends javax.swing.JFrame {
         el boton se dirija de nuevo al inicio de sesion*/
         this.newUser = new UserData(this.user, this.phoneNumber, "nada@ymail");
         this.newUser.hashed_password(this.key);
-        String route = finalRoute;
-        Path trueRoute = Routes.exact_route(route);
+
+        Path trueRoute = Routes.exact_route(finalRoute);
         try {
-            List<UserData> usuarios = FileManager.read_user(trueRoute.toString());
-            usuarios.add(newUser);
-            FileManager.save_user(usuarios, trueRoute, verify);
+            FileManager.save_user(this.newUser, trueRoute, verify);
         } catch (IOException e)  {
             e.printStackTrace();
         }

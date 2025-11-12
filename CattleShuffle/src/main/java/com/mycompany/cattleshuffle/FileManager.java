@@ -11,12 +11,12 @@ import java.nio.charset.StandardCharsets;
 public class FileManager {
     private static final Gson json = new GsonBuilder().setPrettyPrinting().create();
     
-    public static void save_user(List<UserData> users, Path route, boolean append)throws IOException {
+    public static void save_user(UserData users, Path route, boolean append)throws IOException {
         String toJson = json.toJson(users);
         if (route.getParent() != null) Files.createDirectories(route.getParent());
         if(append){
             Files.write(route, toJson.getBytes(StandardCharsets.UTF_8),
-            StandardOpenOption.CREATE);
+            StandardOpenOption.CREATE, StandardOpenOption.APPEND);
         } else {
             Files.write(route, toJson.getBytes(StandardCharsets.UTF_8),
             StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
