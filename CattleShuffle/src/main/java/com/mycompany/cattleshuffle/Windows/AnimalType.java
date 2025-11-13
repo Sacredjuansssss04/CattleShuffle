@@ -9,7 +9,7 @@ package com.mycompany.cattleshuffle.Windows;
  * @author Sacred Juanss
  */
 public class AnimalType extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AnimalType.class.getName());
 
     /**
@@ -31,8 +31,8 @@ public class AnimalType extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         tittleText = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        fattening = new javax.swing.JButton();
         breeder = new javax.swing.JButton();
+        fattening = new javax.swing.JButton();
         producer = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 191, 101));
@@ -44,19 +44,19 @@ public class AnimalType extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 234, 204));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
-        fattening.setBackground(new java.awt.Color(255, 191, 101));
-        fattening.setText("Crianza");
-        fattening.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fatteningActionPerformed(evt);
-            }
-        });
-
         breeder.setBackground(new java.awt.Color(255, 191, 101));
-        breeder.setText("Engorde");
+        breeder.setText("Crianza");
         breeder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 breederActionPerformed(evt);
+            }
+        });
+
+        fattening.setBackground(new java.awt.Color(255, 191, 101));
+        fattening.setText("Engorde");
+        fattening.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fatteningActionPerformed(evt);
             }
         });
 
@@ -77,8 +77,8 @@ public class AnimalType extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(136, 136, 136)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fattening)
-                            .addComponent(breeder)))
+                            .addComponent(breeder)
+                            .addComponent(fattening)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(129, 129, 129)
                         .addComponent(producer)))
@@ -88,9 +88,9 @@ public class AnimalType extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(fattening)
-                .addGap(54, 54, 54)
                 .addComponent(breeder)
+                .addGap(54, 54, 54)
+                .addComponent(fattening)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(producer)
                 .addGap(20, 20, 20))
@@ -134,16 +134,25 @@ public class AnimalType extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void producerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_producerActionPerformed
-        // TODO add your handling code here:
+        AddAnimalProducer ProducerWindow = new AddAnimalProducer();
+        ProducerWindow.setVisible(true);
+        ProducerWindow.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_producerActionPerformed
 
-    private void breederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_breederActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_breederActionPerformed
-
     private void fatteningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fatteningActionPerformed
-        // TODO add your handling code here:
+        AddAnimalFattening FatteningWindow = new AddAnimalFattening();
+        FatteningWindow.setVisible(true);
+        FatteningWindow.setLocationRelativeTo(null);
+        this.dispose();  
     }//GEN-LAST:event_fatteningActionPerformed
+
+    private void breederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_breederActionPerformed
+        AddAnimalBreeder BreederWindow = new AddAnimalBreeder();
+        BreederWindow.setVisible(true);
+        BreederWindow.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_breederActionPerformed
 
     /**
      * @param args the command line arguments

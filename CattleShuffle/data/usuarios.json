@@ -10,5 +10,10 @@
     "password": "$2a$12$Vp2NBHdIn2lEuYjs/4a2w.9ycY5SvCelxEmEtlQyxwe/l36FG8zdC",
     "numberPhone": "1234567890",
     "email": "nada@ymail"
+  },
+  {
+    "name": "Soto",
+    "password": "$2a$12$esfOniULhw1tQpneAqwvpuWmjZqw8Y87dt5zeBLGOp/q2lF6Ypjem",
+    "email": "nada@ymail"
   }
 ]

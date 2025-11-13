@@ -159,9 +159,9 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void addAnimalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAnimalButtonActionPerformed
         // TODO add your handling code here:
-        AddAnimalFattening ventanaAnimal = new AddAnimalFattening();
-        ventanaAnimal.setVisible(true);
-        ventanaAnimal.setLocationRelativeTo(null);
+        AnimalType AnimalWindow = new AnimalType();
+        AnimalWindow.setVisible(true);
+        AnimalWindow.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_addAnimalButtonActionPerformed
 
