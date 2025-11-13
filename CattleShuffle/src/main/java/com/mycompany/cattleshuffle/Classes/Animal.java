@@ -1,69 +1,76 @@
 package com.mycompany.cattleshuffle.Classes;
 
-public class Animal {
+public abstract class Animal {
     
-    private String etiqueta;
-    private String tipo;
-    private int edad;
-    private String vacunas;
-    private String fechavacunas;
-    private String especie;
+    private String tag;
+    private String type;
+    private int age;
+    private String vaccine;
+    private String vaccineDate;
+    private String species;
 
-    public Animal(String etiqueta, String tipo, int edad, String vacunas, String fechavacunas, String especie) {
-        this.etiqueta = etiqueta;
-        this.tipo = tipo;
-        this.edad = edad;
-        this.vacunas = vacunas;
-        this.fechavacunas = fechavacunas;
-        this.especie = especie;
+    public Animal(String tag, String type, int age, String vaccine, String vaccineDate, String species) {
+        this.tag = tag;
+        this.type = type;
+        this.age = age;
+        this.vaccine = vaccine;
+        this.vaccineDate = vaccineDate;
+        this.species = species;
+    }
+    public String getTag() {
+        return this.tag;
     }
 
-    public String getEtiqueta() {
-        return etiqueta;
+    public String getType() {
+        return this.type;
     }
 
-    public String getTipo() {
-        return tipo;
+    public int getAge() {
+        return this.age;
     }
 
-    public int getEdad() {
-        return edad;
+    public String getVaccine() {
+        return this.vaccine;
     }
 
-    public String getVacunas() {
-        return vacunas;
+    public String getVaccineDate() {
+        return this.vaccineDate;
     }
 
-    public String getFechavacunas() {
-        return fechavacunas;
+    public String getSpecies() {
+        return this.species;
+    }
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 
-    public String getEspecie() {
-        return especie;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public void setEtiqueta(String etiqueta) {
-        this.etiqueta = etiqueta;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setVaccine(String vaccine) {
+        this.vaccine = vaccine;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setVaccineDate(String vaccineDate) {
+        this.vaccineDate = vaccineDate;
     }
 
-    public void setVacunas(String vacunas) {
-        this.vacunas = vacunas;
+    public void setSpecies(String species) {
+        this.species = species;
     }
 
-    public void setFechavacunas(String fechavacunas) {
-        this.fechavacunas = fechavacunas;
+    @Override
+    public String toString(){
+        return "Especie: " + this.species + ".\n" +
+                "Tipo: " + this.type + ".\n" +
+                "Etiqueta: " + this.tag + ".\n" +
+                "Edad: " + this.age + ".\n" +
+                "Vacuna: " + this.vaccine + ".\n" +
+                "Fecha de Vacunación: " + this.vaccineDate + ".\n";
     }
-
-    public void setEspecie(String especie) {
-        this.especie = especie;
-    }
-    
 }
