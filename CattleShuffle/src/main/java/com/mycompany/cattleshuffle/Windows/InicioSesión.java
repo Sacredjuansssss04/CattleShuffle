@@ -1,6 +1,7 @@
-package com.mycompany.cattleshuffle;
+package com.mycompany.cattleshuffle.Windows;
 import java.awt.Color;
 import javax.swing.SwingUtilities;
+import com.mycompany.cattleshuffle.Classes.*;
 
 public class InicioSesión extends javax.swing.JFrame {
     

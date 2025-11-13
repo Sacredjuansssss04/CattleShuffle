@@ -1,9 +1,10 @@
-package com.mycompany.cattleshuffle;
+package com.mycompany.cattleshuffle.Windows;
 import java.util.*;
 import javax.swing.JOptionPane;
 import java.nio.file.Path;
 import java.nio.file.*;
 import java.io.*;
+import com.mycompany.cattleshuffle.Classes.*;
 
 public class Registro extends javax.swing.JFrame {
     

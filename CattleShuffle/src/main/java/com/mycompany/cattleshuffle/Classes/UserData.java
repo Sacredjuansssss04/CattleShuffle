@@ -1,4 +1,4 @@
-package com.mycompany.cattleshuffle;
+package com.mycompany.cattleshuffle.Classes;
 import org.mindrot.jbcrypt.BCrypt;
 
 public class UserData {

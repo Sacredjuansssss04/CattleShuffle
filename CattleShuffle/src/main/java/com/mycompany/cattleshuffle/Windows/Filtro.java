@@ -1,4 +1,4 @@
-package com.mycompany.cattleshuffle;
+package com.mycompany.cattleshuffle.Windows;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;

@@ -1,4 +1,4 @@
-package com.mycompany.cattleshuffle;
+package com.mycompany.cattleshuffle.Classes;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import java.io.*;

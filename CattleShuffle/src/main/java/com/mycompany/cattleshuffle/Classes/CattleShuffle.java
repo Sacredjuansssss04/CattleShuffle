@@ -1,4 +1,5 @@
-package com.mycompany.cattleshuffle;
+package com.mycompany.cattleshuffle.Classes;
+import com.mycompany.cattleshuffle.Windows.*;
 
 public class CattleShuffle {
 

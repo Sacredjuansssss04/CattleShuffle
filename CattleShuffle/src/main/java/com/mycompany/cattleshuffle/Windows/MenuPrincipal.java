@@ -1,6 +1,7 @@
-package com.mycompany.cattleshuffle;
+package com.mycompany.cattleshuffle.Windows;
 import javax.swing.SwingUtilities;
 import java.awt.Color;
+import com.mycompany.cattleshuffle.Classes.*;
 
 public class MenuPrincipal extends javax.swing.JFrame {
     
