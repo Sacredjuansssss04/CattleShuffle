@@ -8,14 +8,14 @@ package com.mycompany.cattleshuffle.Windows;
  *
  * @author adria
  */
-public class AgregarAnimal extends javax.swing.JFrame {
+public class AddAnimalFattening extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AgregarAnimal.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AddAnimalFattening.class.getName());
 
     /**
      * Creates new form AgregarAnimal
      */
-    public AgregarAnimal() {
+    public AddAnimalFattening() {
         initComponents();
     }
 
@@ -47,11 +47,10 @@ public class AgregarAnimal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(101, 178, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Agregar nuevo animal");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -73,40 +72,28 @@ public class AgregarAnimal extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, -1));
 
-        jPanel2.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(204, 229, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Edad (meses):");
 
-        animalAge.setBackground(new java.awt.Color(255, 255, 255));
         animalAge.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        animalAge.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Peso (kg):");
 
-        animalWeight.setBackground(new java.awt.Color(255, 255, 255));
         animalWeight.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        animalWeight.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Nombre:");
 
-        animalName.setBackground(new java.awt.Color(255, 255, 255));
         animalName.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        animalName.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Clase:");
 
-        animalClass.setBackground(new java.awt.Color(255, 255, 255));
         animalClass.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        animalClass.setForeground(new java.awt.Color(0, 0, 0));
         animalClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         animalClass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,21 +102,16 @@ public class AgregarAnimal extends javax.swing.JFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Tipo de producto");
 
-        productTipe.setBackground(new java.awt.Color(255, 255, 255));
         productTipe.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        productTipe.setForeground(new java.awt.Color(0, 0, 0));
 
         jButton1.setBackground(new java.awt.Color(255, 153, 153));
         jButton1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Guardar registro");
 
         mainButton.setBackground(new java.awt.Color(153, 255, 153));
         mainButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        mainButton.setForeground(new java.awt.Color(0, 0, 0));
         mainButton.setText("Regresar al menú");
         mainButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,7 +189,7 @@ public class AgregarAnimal extends javax.swing.JFrame {
 
     private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
         // TODO add your handling code here:
-        MenuPrincipal ventana = new MenuPrincipal();
+        MainMenu ventana = new MainMenu();
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(null);
         this.dispose();
@@ -235,7 +217,7 @@ public class AgregarAnimal extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new AgregarAnimal().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new AddAnimalFattening().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

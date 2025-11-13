@@ -1,11 +1,11 @@
 package com.mycompany.cattleshuffle.Classes;
 import java.util.*;
 
-public class AnimalCrianza extends Animal{
+public class AnimalBreeder extends Animal{
     private int numBaby;
     private List<String> babyDate;
 
-    public AnimalCrianza(int numCrias, String fechaCrias, String tag, String type, int age, String vaccine, String vaccineDate, String species) {
+    public AnimalBreeder(int numCrias, String fechaCrias, String tag, String type, int age, String vaccine, String vaccineDate, String species) {
         super(tag, type, age, vaccine, vaccineDate, species);
         this.numBaby = numCrias;
         this.babyDate.add(fechaCrias);

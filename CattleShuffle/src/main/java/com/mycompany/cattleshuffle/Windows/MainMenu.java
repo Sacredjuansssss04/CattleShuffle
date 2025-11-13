@@ -3,11 +3,11 @@ import javax.swing.SwingUtilities;
 import java.awt.Color;
 import com.mycompany.cattleshuffle.Classes.*;
 
-public class MenuPrincipal extends javax.swing.JFrame {
+public class MainMenu extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuPrincipal.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainMenu.class.getName());
 
-    public MenuPrincipal() {
+    public MainMenu() {
         initComponents();
         
         
@@ -39,7 +39,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Menú principal");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -66,7 +65,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         addAnimalButton.setBackground(new java.awt.Color(153, 153, 255));
         addAnimalButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        addAnimalButton.setForeground(new java.awt.Color(0, 0, 0));
         addAnimalButton.setText("Agregar animal");
         addAnimalButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +74,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         filterButton.setBackground(new java.awt.Color(153, 153, 255));
         filterButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        filterButton.setForeground(new java.awt.Color(0, 0, 0));
         filterButton.setText("Filtro");
         filterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +83,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         animalMenuButton.setBackground(new java.awt.Color(153, 153, 255));
         animalMenuButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        animalMenuButton.setForeground(new java.awt.Color(0, 0, 0));
         animalMenuButton.setText("Menú animal");
         animalMenuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +92,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         productMenuButton.setBackground(new java.awt.Color(153, 153, 255));
         productMenuButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        productMenuButton.setForeground(new java.awt.Color(0, 0, 0));
         productMenuButton.setText("Menú producto");
         productMenuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,7 +101,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         logOutButton.setBackground(new java.awt.Color(153, 153, 255));
         logOutButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        logOutButton.setForeground(new java.awt.Color(0, 0, 0));
         logOutButton.setText("Cerrar sesión");
         logOutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,7 +151,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void animalMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_animalMenuButtonActionPerformed
         // TODO add your handling code here:
-        MenuAnimal ventanaMenuAnimal = new MenuAnimal();
+        AnimalMenu ventanaMenuAnimal = new AnimalMenu();
         ventanaMenuAnimal.setVisible(true);
         ventanaMenuAnimal.setLocationRelativeTo(null);
         this.dispose();
@@ -165,7 +159,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void addAnimalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAnimalButtonActionPerformed
         // TODO add your handling code here:
-        AgregarAnimal ventanaAnimal = new AgregarAnimal();
+        AddAnimalFattening ventanaAnimal = new AddAnimalFattening();
         ventanaAnimal.setVisible(true);
         ventanaAnimal.setLocationRelativeTo(null);
         this.dispose();
@@ -173,7 +167,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void filterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterButtonActionPerformed
         // TODO add your handling code here:
-        Filtro ventanaFiltro = new Filtro();
+        Filter ventanaFiltro = new Filter();
         ventanaFiltro.setVisible(true);
         ventanaFiltro.setLocationRelativeTo(null);
         this.dispose();
@@ -181,7 +175,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void productMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productMenuButtonActionPerformed
         // TODO add your handling code here:
-        MenuProducto ventanaMenuProducto = new MenuProducto();
+        ProductMenu ventanaMenuProducto = new ProductMenu();
         ventanaMenuProducto.setVisible(true);
         ventanaMenuProducto.setLocationRelativeTo(null);
         this.dispose();
@@ -189,7 +183,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
         // TODO add your handling code here:
-        InicioSesión ventanaInicioSesion = new InicioSesión();
+        Login ventanaInicioSesion = new Login();
         ventanaInicioSesion.setVisible(true);
         ventanaInicioSesion.setLocationRelativeTo(null);
         this.dispose();
@@ -217,7 +211,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new MenuPrincipal().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new MainMenu().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

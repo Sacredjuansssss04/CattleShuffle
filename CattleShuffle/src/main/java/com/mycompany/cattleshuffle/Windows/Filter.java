@@ -3,11 +3,11 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
 
-public class Filtro extends javax.swing.JFrame {
+public class Filter extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Filtro.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Filter.class.getName());
 
-    public Filtro() {
+    public Filter() {
         initComponents();
         
         idAnimal.setText("Buscar");
@@ -51,7 +51,6 @@ public class Filtro extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Filtro");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -77,12 +76,10 @@ public class Filtro extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("ID Animal:");
 
         idAnimal.setBackground(new java.awt.Color(153, 204, 255));
         idAnimal.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        idAnimal.setForeground(new java.awt.Color(0, 0, 0));
         idAnimal.setText("Buscar");
         idAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,19 +88,15 @@ public class Filtro extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Registros totales");
 
-        resultsText.setBackground(new java.awt.Color(255, 255, 255));
         resultsText.setColumns(20);
         resultsText.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        resultsText.setForeground(new java.awt.Color(0, 0, 0));
         resultsText.setRows(5);
         jScrollPane2.setViewportView(resultsText);
 
         selectButton.setBackground(new java.awt.Color(153, 204, 255));
         selectButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        selectButton.setForeground(new java.awt.Color(0, 0, 0));
         selectButton.setText("Seleccionar");
         selectButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,9 +104,7 @@ public class Filtro extends javax.swing.JFrame {
             }
         });
 
-        typeFilter.setBackground(new java.awt.Color(255, 255, 255));
         typeFilter.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        typeFilter.setForeground(new java.awt.Color(0, 0, 0));
         typeFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo", "producción de bienes", "Reproducción", "Engorde" }));
         typeFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +114,6 @@ public class Filtro extends javax.swing.JFrame {
 
         filterButton.setBackground(new java.awt.Color(153, 204, 255));
         filterButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        filterButton.setForeground(new java.awt.Color(0, 0, 0));
         filterButton.setText("Filtrar");
         filterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +123,6 @@ public class Filtro extends javax.swing.JFrame {
 
         mainButton.setBackground(new java.awt.Color(153, 255, 153));
         mainButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        mainButton.setForeground(new java.awt.Color(0, 0, 0));
         mainButton.setText("Regresar al menú ");
         mainButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,7 +209,7 @@ public class Filtro extends javax.swing.JFrame {
 
     private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
         // TODO add your handling code here:
-        MenuPrincipal ventana = new MenuPrincipal();
+        MainMenu ventana = new MainMenu();
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(null);
         this.dispose();
@@ -248,7 +237,7 @@ public class Filtro extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Filtro().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new Filter().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

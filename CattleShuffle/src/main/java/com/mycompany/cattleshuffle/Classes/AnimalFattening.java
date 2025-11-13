@@ -1,11 +1,11 @@
 package com.mycompany.cattleshuffle.Classes;
 
-public class AnimalEngorde extends Animal{
+public class AnimalFattening extends Animal{
     private double initialWeight;
     private double finalWeight;
     private String arrivalDate;
 
-    public AnimalEngorde(double initialWeight, double finalWeight, String arrivalDate, String tag, String type, int age, String vaccine, String vaccineDate, String species) {
+    public AnimalFattening(double initialWeight, double finalWeight, String arrivalDate, String tag, String type, int age, String vaccine, String vaccineDate, String species) {
         super(tag, type, age, vaccine, vaccineDate, species);
         this.initialWeight = initialWeight;
         this.finalWeight = finalWeight;

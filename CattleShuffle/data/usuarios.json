@@ -4,5 +4,11 @@
     "password": "$2a$12$BcCJ5PAYpTRrYOsPNw.ht.ckFdNfLU6PUyrxeqhTU3tndMjcSyFBi",
     "numberPhone": "1234567890",
     "email": "nada@ymail"
+  },
+  {
+    "name": "Juanes",
+    "password": "$2a$12$Vp2NBHdIn2lEuYjs/4a2w.9ycY5SvCelxEmEtlQyxwe/l36FG8zdC",
+    "numberPhone": "1234567890",
+    "email": "nada@ymail"
   }
 ]

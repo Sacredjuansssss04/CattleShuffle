@@ -8,14 +8,14 @@ package com.mycompany.cattleshuffle.Windows;
  *
  * @author adria
  */
-public class MenuProducto extends javax.swing.JFrame {
+public class ProductMenu extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuProducto.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ProductMenu.class.getName());
 
     /**
      * Creates new form MenuProducto
      */
-    public MenuProducto() {
+    public ProductMenu() {
         initComponents();
     }
 
@@ -49,7 +49,6 @@ public class MenuProducto extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         animalMenuLabel.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        animalMenuLabel.setForeground(new java.awt.Color(0, 0, 0));
         animalMenuLabel.setText("Menú Producto");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -75,7 +74,6 @@ public class MenuProducto extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Añadir producto");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -101,11 +99,9 @@ public class MenuProducto extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Producto");
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Historial");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -146,7 +142,6 @@ public class MenuProducto extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(153, 153, 255));
         jButton1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Regresar al menú");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,7 +183,7 @@ public class MenuProducto extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MenuPrincipal ventana = new MenuPrincipal();
+        MainMenu ventana = new MainMenu();
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(null);
         this.dispose();
@@ -216,7 +211,7 @@ public class MenuProducto extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new MenuProducto().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new ProductMenu().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

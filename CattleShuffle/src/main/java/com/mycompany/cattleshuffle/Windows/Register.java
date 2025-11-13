@@ -5,17 +5,18 @@ import java.nio.file.Path;
 import java.nio.file.*;
 import java.io.*;
 import com.mycompany.cattleshuffle.Classes.*;
+import java.awt.event.ActionEvent;
 
-public class Registro extends javax.swing.JFrame {
+public class Register extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Registro.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Register.class.getName());
     private String key;
     private String user;
     private String phoneNumber;
     private boolean verify = true;
     private UserData newUser;
 
-    public Registro() {
+    public Register() {
         initComponents();
     }
 
@@ -126,14 +127,14 @@ public class Registro extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 149, Short.MAX_VALUE)
+                .addGap(0, 167, Short.MAX_VALUE)
                 .addComponent(registerTitle)
                 .addGap(145, 145, 145))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(registerButton)
-                .addGap(183, 183, 183))
+                .addGap(189, 189, 189))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(135, 135, 135)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -161,20 +162,20 @@ public class Registro extends javax.swing.JFrame {
                 .addComponent(passwordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
+                .addGap(18, 18, 18)
                 .addComponent(confirmPasswordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(confirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
-                .addComponent(cellphoneLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(cellphoneLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
                 .addComponent(registerButton)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 430));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -217,7 +218,7 @@ public class Registro extends javax.swing.JFrame {
         return;
         }
         
-        InicioSesión inicio = new InicioSesión();
+        Login inicio = new Login();
         inicio.setVisible(true);
         inicio.setLocationRelativeTo(null);
         this.dispose();
@@ -266,7 +267,7 @@ public class Registro extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Registro().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new Register().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

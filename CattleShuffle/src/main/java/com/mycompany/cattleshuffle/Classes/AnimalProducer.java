@@ -1,12 +1,12 @@
 package com.mycompany.cattleshuffle.Classes;
 import java.util.*;
 
-public class AnimalProductor {
+public class AnimalProducer {
     private String producto;
     private int numProducido;
     private List<String> fechaProdicido;
     
-    public AnimalProductor(String producto, int numProducido, List<String> fechaProdicido) {
+    public AnimalProducer(String producto, int numProducido, List<String> fechaProdicido) {
         this.producto = producto;
         this.numProducido = numProducido;
         this.fechaProdicido = fechaProdicido;

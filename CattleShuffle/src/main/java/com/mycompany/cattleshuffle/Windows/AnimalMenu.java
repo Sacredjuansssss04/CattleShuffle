@@ -4,14 +4,14 @@
  */
 package com.mycompany.cattleshuffle.Windows;
 
-public class MenuAnimal extends javax.swing.JFrame {
+public class AnimalMenu extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuAnimal.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AnimalMenu.class.getName());
 
     /**
      * Creates new form MenuAnimal
      */
-    public MenuAnimal() {
+    public AnimalMenu() {
         initComponents();
     }
 
@@ -42,7 +42,6 @@ public class MenuAnimal extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         animalMenuLabel.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        animalMenuLabel.setForeground(new java.awt.Color(0, 0, 0));
         animalMenuLabel.setText("Menú Animal");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -75,7 +74,6 @@ public class MenuAnimal extends javax.swing.JFrame {
 
         mainButton.setBackground(new java.awt.Color(153, 153, 255));
         mainButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        mainButton.setForeground(new java.awt.Color(0, 0, 0));
         mainButton.setText("Regresar al menú");
         mainButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,7 +110,6 @@ public class MenuAnimal extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Historial de animales");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -138,7 +135,6 @@ public class MenuAnimal extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Ver animal");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -165,7 +161,7 @@ public class MenuAnimal extends javax.swing.JFrame {
 
     private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
         // TODO add your handling code here:
-        MenuPrincipal ventana = new MenuPrincipal();
+        MainMenu ventana = new MainMenu();
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(null);
         this.dispose();
@@ -193,7 +189,7 @@ public class MenuAnimal extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new MenuAnimal().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new AnimalMenu().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
