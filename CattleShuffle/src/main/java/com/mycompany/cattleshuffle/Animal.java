@@ -7,13 +7,15 @@ public class Animal {
     private int edad;
     private String vacunas;
     private String fechavacunas;
+    private String especie;
 
-    public Animal(String etiqueta, String tipo, int edad, String vacunas, String fechavacunas) {
+    public Animal(String etiqueta, String tipo, int edad, String vacunas, String fechavacunas, String especie) {
         this.etiqueta = etiqueta;
         this.tipo = tipo;
         this.edad = edad;
         this.vacunas = vacunas;
         this.fechavacunas = fechavacunas;
+        this.especie = especie;
     }
 
     public String getEtiqueta() {
@@ -36,6 +38,10 @@ public class Animal {
         return fechavacunas;
     }
 
+    public String getEspecie() {
+        return especie;
+    }
+
     public void setEtiqueta(String etiqueta) {
         this.etiqueta = etiqueta;
     }
@@ -54,6 +60,10 @@ public class Animal {
 
     public void setFechavacunas(String fechavacunas) {
         this.fechavacunas = fechavacunas;
+    }
+
+    public void setEspecie(String especie) {
+        this.especie = especie;
     }
     
 }
