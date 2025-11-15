@@ -15,5 +15,17 @@
     "name": "Soto",
     "password": "$2a$12$esfOniULhw1tQpneAqwvpuWmjZqw8Y87dt5zeBLGOp/q2lF6Ypjem",
     "email": "nada@ymail"
+  },
+  {
+    "name": "karol",
+    "password": "$2a$12$2Vn4yqPga6JoseRrnZAPz.xbRTHj2XOdfLhLneKFww1aX9JBUoRt.",
+    "numberPhone": "3053346039",
+    "email": "nada@ymail"
+  },
+  {
+    "name": "karol",
+    "password": "$2a$12$gklw1hausXZlsvGkrLOAVOQxGRoPoK33m0b.2nAWytZn4ODdxIRvC",
+    "numberPhone": "3053346039",
+    "email": "nada@ymail"
   }
 ]

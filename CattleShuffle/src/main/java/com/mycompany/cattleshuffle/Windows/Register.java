@@ -15,6 +15,7 @@ public class Register extends javax.swing.JFrame {
     private String phoneNumber;
     private boolean verify = true;
     private UserData newUser;
+    private String mail;
 
     public Register() {
         initComponents();
@@ -38,6 +39,8 @@ public class Register extends javax.swing.JFrame {
         phone = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         confirmPassword = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
+        email = new javax.swing.JTextField();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -122,22 +125,36 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Correo electrónico");
+
+        email.setBackground(new java.awt.Color(255, 255, 255));
+        email.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        email.setForeground(new java.awt.Color(0, 0, 0));
+        email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 167, Short.MAX_VALUE)
+                .addGap(0, 149, Short.MAX_VALUE)
                 .addComponent(registerTitle)
                 .addGap(145, 145, 145))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(registerButton)
-                .addGap(189, 189, 189))
+                .addGap(185, 185, 185))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(135, 135, 135)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1)
                     .addComponent(cellphoneLabel)
                     .addComponent(confirmPasswordLabel)
                     .addComponent(userLabel)
@@ -145,7 +162,8 @@ public class Register extends javax.swing.JFrame {
                     .addComponent(passwordLabel)
                     .addComponent(phone)
                     .addComponent(password)
-                    .addComponent(confirmPassword))
+                    .addComponent(confirmPassword)
+                    .addComponent(email))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -170,9 +188,13 @@ public class Register extends javax.swing.JFrame {
                 .addComponent(cellphoneLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(registerButton)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addGap(36, 36, 36))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 520));
@@ -202,6 +224,9 @@ public class Register extends javax.swing.JFrame {
         String contraseña = new String(password.getText().trim());
         String confirmarContraseña = new String(confirmPassword.getText().trim());
         String telefono = phone.getText().trim();
+        String correo = email.getText().trim();
+        String regexCorreo = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+
         
         if(usuario.isEmpty()||contraseña.isEmpty()||confirmarContraseña.isEmpty()||telefono.isEmpty()){
             JOptionPane.showMessageDialog(this, "Diligencia todos los campos antes de enviar", "Advertencia", JOptionPane.WARNING_MESSAGE);
@@ -216,6 +241,11 @@ public class Register extends javax.swing.JFrame {
         if(!telefono.matches("\\d{10,}")){
             JOptionPane.showMessageDialog(this, "El numero de teléfono debe contener solo numeros y 10 digitos", "Teléfono inválido", JOptionPane.ERROR_MESSAGE);
         return;
+        }
+        
+        if(!correo.matches(regexCorreo)){
+            JOptionPane.showMessageDialog(this, "Ingrese un correo válido", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
         }
         
         Login inicio = new Login();
@@ -244,6 +274,11 @@ public class Register extends javax.swing.JFrame {
         this.phoneNumber = phone.getText();
         System.out.println(this.phoneNumber);
     }//GEN-LAST:event_phoneActionPerformed
+
+    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+        this.mail = email.getText();
+        System.out.println(this.mail);
+    }//GEN-LAST:event_emailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,7 +309,9 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel cellphoneLabel;
     private javax.swing.JPasswordField confirmPassword;
     private javax.swing.JLabel confirmPasswordLabel;
+    private javax.swing.JTextField email;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField password;
