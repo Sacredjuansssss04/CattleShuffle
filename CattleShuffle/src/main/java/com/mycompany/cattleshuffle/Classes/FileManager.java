@@ -72,4 +72,19 @@ public class FileManager {
         
         return false;
     }
+    
+    public static boolean user_exists(String name, Path route) throws IOException{
+        if(!Files.exists(route)) return false;
+        
+        String content = Files.readString(route, StandardCharsets.UTF_8);
+        Type type = new TypeToken<List<UserData>>(){}.getType();
+        List<UserData> users = new Gson().fromJson(content, type);
+        
+        for(UserData user: users){
+            if(user.getName().equalsIgnoreCase(name)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

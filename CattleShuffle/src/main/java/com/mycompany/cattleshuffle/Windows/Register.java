@@ -203,10 +203,15 @@ public class Register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        /*aca se debe añadir lo de verificar que los campos esten diligenciados para que 
-        el boton se dirija de nuevo al inicio de sesion*/
-        this.newUser = new UserData(this.user, this.phoneNumber, "nada@ymail");
-        this.newUser.hashed_password(this.key);
+
+        String usuario = userName.getText().trim();
+        String contraseña = new String(password.getText().trim());
+        String confirmarContraseña = new String(confirmPassword.getText().trim());
+        String telefono = phone.getText().trim();
+        String correo = email.getText().trim();
+        String regexCorreo = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        this.newUser = new UserData(usuario, telefono, correo);
+        this.newUser.hashed_password(contraseña);
         List<UserData> users = new ArrayList();
         users.add(this.newUser);
         Path trueRoute = Routes.exact_route(Routes.getFinalRoute());
@@ -220,12 +225,7 @@ public class Register extends javax.swing.JFrame {
         } catch (IOException e)  {
             e.printStackTrace();
         }
-        String usuario = userName.getText().trim();
-        String contraseña = new String(password.getText().trim());
-        String confirmarContraseña = new String(confirmPassword.getText().trim());
-        String telefono = phone.getText().trim();
-        String correo = email.getText().trim();
-        String regexCorreo = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        
 
         
         if(usuario.isEmpty()||contraseña.isEmpty()||confirmarContraseña.isEmpty()||telefono.isEmpty()){

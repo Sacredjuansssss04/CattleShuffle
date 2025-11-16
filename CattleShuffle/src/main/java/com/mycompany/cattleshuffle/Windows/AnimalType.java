@@ -29,25 +29,37 @@ public class AnimalType extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        breeder = new javax.swing.JButton();
+        fattening = new javax.swing.JButton();
+        producer = new javax.swing.JButton();
+        menu = new javax.swing.JButton();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 204, 102));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Tipo de animal");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 348, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(127, 127, 127)
+                .addComponent(jLabel1)
+                .addContainerGap(136, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 58, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel1)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 60));
@@ -55,40 +67,112 @@ public class AnimalType extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 204, 153));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jButton1.setText("Crianza");
+        breeder.setBackground(new java.awt.Color(255, 255, 153));
+        breeder.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        breeder.setForeground(new java.awt.Color(0, 0, 0));
+        breeder.setText("Crianza");
+        breeder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                breederActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Engorde");
+        fattening.setBackground(new java.awt.Color(255, 255, 153));
+        fattening.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        fattening.setForeground(new java.awt.Color(0, 0, 0));
+        fattening.setText("Engorde");
+        fattening.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fatteningActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Producción");
+        producer.setBackground(new java.awt.Color(255, 255, 153));
+        producer.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        producer.setForeground(new java.awt.Color(0, 0, 0));
+        producer.setText("Producción");
+        producer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                producerActionPerformed(evt);
+            }
+        });
+
+        menu.setBackground(new java.awt.Color(255, 204, 204));
+        menu.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        menu.setForeground(new java.awt.Color(0, 0, 0));
+        menu.setText("Regresar al menú");
+        menu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(124, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addGap(133, 133, 133))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(fattening, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(breeder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(136, 136, 136))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(producer))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(menu)))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jButton1)
-                .addGap(30, 30, 30)
-                .addComponent(jButton2)
-                .addGap(38, 38, 38)
-                .addComponent(jButton3)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addGap(45, 45, 45)
+                .addComponent(breeder)
+                .addGap(26, 26, 26)
+                .addComponent(fattening)
+                .addGap(28, 28, 28)
+                .addComponent(producer)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(menu)
+                .addGap(31, 31, 31))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 350, 240));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 350, 260));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void breederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_breederActionPerformed
+        AddAnimalBreeder crianza = new AddAnimalBreeder();
+        crianza.setVisible(true);
+        crianza.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_breederActionPerformed
+
+    private void menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuActionPerformed
+        MainMenu ventana = new MainMenu();
+        ventana.setVisible(true);
+        ventana.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_menuActionPerformed
+
+    private void fatteningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fatteningActionPerformed
+        AddAnimalFattening engorde = new AddAnimalFattening();
+        engorde.setVisible(true);
+        engorde.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_fatteningActionPerformed
+
+    private void producerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_producerActionPerformed
+        AddAnimalProducer produccion = new AddAnimalProducer();
+        produccion.setVisible(true);
+        produccion.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_producerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,10 +200,12 @@ public class AnimalType extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton breeder;
+    private javax.swing.JButton fattening;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JButton menu;
+    private javax.swing.JButton producer;
     // End of variables declaration//GEN-END:variables
 }

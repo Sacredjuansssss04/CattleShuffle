@@ -2,6 +2,7 @@ package com.mycompany.cattleshuffle.Windows;
 import java.awt.Color;
 import javax.swing.SwingUtilities;
 import com.mycompany.cattleshuffle.Classes.*;
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
     
@@ -179,7 +180,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void userNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameActionPerformed
-        this.userToVerify = userName.getText();
+        this.userToVerify = userName.getText().trim();
     }//GEN-LAST:event_userNameActionPerformed
 
     private void newRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newRegisterActionPerformed
@@ -192,19 +193,44 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_newRegisterActionPerformed
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
-        this.passwordToVerify = password.getText();
+        this.passwordToVerify = password.getText().trim();
     }//GEN-LAST:event_passwordActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        MainMenu ventana = new MainMenu(); //Aca ya esta lo de iniciar sesion ir a la ventana de agregar animal
+        MainMenu ventana = new MainMenu();
+        this.userToVerify = userName.getText().trim();
+        this.passwordToVerify = password.getText().trim();
         try{
-            if(FileManager.verify_user(this.userToVerify, this.passwordToVerify, Routes.exact_route(Routes.getFinalRoute()))){
-                ventana.setVisible(true);
-                ventana.setLocationRelativeTo(null);
-                this.dispose();
+            boolean usuarioExiste = FileManager.user_exists(
+                this.userToVerify,
+                Routes.exact_route(Routes.getFinalRoute())
+            
+            );
+            
+            if(!usuarioExiste){
+                JOptionPane.showMessageDialog(this, "El usuario no existe", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
             }
-        } catch(Exception e){
+            
+            boolean contrasenaCorrecta = FileManager.verify_user(
+                    this.userToVerify, 
+                    this.passwordToVerify,
+                    Routes.exact_route(Routes.getFinalRoute())
+            );
+            
+            if(!contrasenaCorrecta){
+                JOptionPane.showMessageDialog(this, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            ventana.setVisible(true);
+            ventana.setLocationRelativeTo(null);
+            this.dispose();
+            
+        }
+        catch(Exception e){
             e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Ocurrió un error durante el inicio de sesión", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 

@@ -2,6 +2,7 @@ package com.mycompany.cattleshuffle.Windows;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 public class Filter extends javax.swing.JFrame {
     
@@ -12,14 +13,35 @@ public class Filter extends javax.swing.JFrame {
         
         idAnimal.setText("Buscar");
         idAnimal.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14));
-        idAnimal.setForeground(Color.BLACK);
+        idAnimal.setForeground(Color.GRAY);
+        
+        idAnimal.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent evt){
+                if(idAnimal.getText().equals("Buscar")){
+                    idAnimal.setText("");
+                    idAnimal.setForeground(Color.BLACK);
+                }
+            }
+            
+            @Override
+            public void focusLost(java.awt.event.FocusEvent evt){
+                if(idAnimal.getText().trim().isEmpty()){
+                    idAnimal.setText("Buscar");
+                    idAnimal.setForeground(Color.GRAY);
+                }
+            }
+            
+        });
         
         resultsText.setText("Resultados: ");
         resultsText.setEditable(false);
-        
-        
-        
-        
+
+        SwingUtilities.invokeLater(() -> {
+        idAnimal.setText("Buscar");
+        idAnimal.setForeground(Color.GRAY);
+        });   
+       
     }
 
     /**
