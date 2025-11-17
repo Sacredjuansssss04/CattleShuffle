@@ -7,13 +7,13 @@ import javax.swing.SwingUtilities;
 public class Filter extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Filter.class.getName());
-
+    
     public Filter() {
         initComponents();
         
         idAnimal.setText("Buscar");
         idAnimal.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14));
-        idAnimal.setForeground(Color.GRAY);
+        idAnimal.setForeground(Color.BLACK);  
         
         idAnimal.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
@@ -28,7 +28,7 @@ public class Filter extends javax.swing.JFrame {
             public void focusLost(java.awt.event.FocusEvent evt){
                 if(idAnimal.getText().trim().isEmpty()){
                     idAnimal.setText("Buscar");
-                    idAnimal.setForeground(Color.GRAY);
+                    idAnimal.setForeground(Color.BLACK);
                 }
             }
             
@@ -39,8 +39,12 @@ public class Filter extends javax.swing.JFrame {
 
         SwingUtilities.invokeLater(() -> {
         idAnimal.setText("Buscar");
-        idAnimal.setForeground(Color.GRAY);
+        idAnimal.setForeground(Color.BLACK);
         });   
+        
+        SwingUtilities.invokeLater(() -> {
+            jPanel1.requestFocusInWindow();
+        });
        
     }
 
