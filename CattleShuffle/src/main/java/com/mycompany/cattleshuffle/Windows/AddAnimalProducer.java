@@ -37,8 +37,6 @@ public class AddAnimalProducer extends javax.swing.JFrame {
         animalWeight = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         animalName = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        animalClass = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         productTipe = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -90,17 +88,6 @@ public class AddAnimalProducer extends javax.swing.JFrame {
 
         animalName.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jLabel6.setText("Clase:");
-
-        animalClass.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        animalClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        animalClass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                animalClassActionPerformed(evt);
-            }
-        });
-
         jLabel7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel7.setText("Tipo de producto");
 
@@ -127,28 +114,26 @@ public class AddAnimalProducer extends javax.swing.JFrame {
                 .addGap(96, 96, 96)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addComponent(productTipe, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel5))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(animalAge)
                             .addComponent(animalWeight)
-                            .addComponent(animalName)
-                            .addComponent(animalClass, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(animalName)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(productTipe, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)))
                 .addGap(71, 71, 71))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
                 .addComponent(mainButton)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,29 +150,21 @@ public class AddAnimalProducer extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(animalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(animalClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(productTipe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(36, 36, 36)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(mainButton))
-                .addContainerGap(15, Short.MAX_VALUE))
+                    .addComponent(mainButton)
+                    .addComponent(jButton1))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 430, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void animalClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_animalClassActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_animalClassActionPerformed
 
     private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
         // TODO add your handling code here:
@@ -224,7 +201,6 @@ public class AddAnimalProducer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField animalAge;
-    private javax.swing.JComboBox<String> animalClass;
     private javax.swing.JTextField animalName;
     private javax.swing.JTextField animalWeight;
     private javax.swing.JButton jButton1;
@@ -232,7 +208,6 @@ public class AddAnimalProducer extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
