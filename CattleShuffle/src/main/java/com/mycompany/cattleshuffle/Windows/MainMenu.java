@@ -28,7 +28,6 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         addAnimalButton = new javax.swing.JButton();
         filterButton = new javax.swing.JButton();
-        animalMenuButton = new javax.swing.JButton();
         productMenuButton = new javax.swing.JButton();
         logOutButton = new javax.swing.JButton();
 
@@ -81,15 +80,6 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        animalMenuButton.setBackground(new java.awt.Color(153, 153, 255));
-        animalMenuButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        animalMenuButton.setText("Menú animal");
-        animalMenuButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                animalMenuButtonActionPerformed(evt);
-            }
-        });
-
         productMenuButton.setBackground(new java.awt.Color(153, 153, 255));
         productMenuButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         productMenuButton.setText("Menú producto");
@@ -112,50 +102,38 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(productMenuButton)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(addAnimalButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(animalMenuButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(logOutButton)))
-                .addContainerGap(79, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(filterButton)
-                .addGap(103, 103, 103))
+                .addGap(106, 106, 106))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(productMenuButton)
+                    .addComponent(logOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(addAnimalButton)))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(47, 47, 47)
                 .addComponent(addAnimalButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(filterButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(animalMenuButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(productMenuButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(logOutButton)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 290, 260));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void animalMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_animalMenuButtonActionPerformed
-        // TODO add your handling code here:
-        AnimalMenu ventanaMenuAnimal = new AnimalMenu();
-        ventanaMenuAnimal.setVisible(true);
-        ventanaMenuAnimal.setLocationRelativeTo(null);
-        this.dispose();
-    }//GEN-LAST:event_animalMenuButtonActionPerformed
 
     private void addAnimalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAnimalButtonActionPerformed
         // TODO add your handling code here:
@@ -216,7 +194,6 @@ public class MainMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addAnimalButton;
-    private javax.swing.JButton animalMenuButton;
     private javax.swing.JButton filterButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
