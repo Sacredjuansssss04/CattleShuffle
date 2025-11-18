@@ -9,22 +9,26 @@ public abstract class Animal {
     private String vaccineDate;
     private String species;
     private String name;
+    private double weight;
 
-    public Animal(String tag, String type, int age, String vaccine, String vaccineDate, String species) {
+    public Animal(String tag, String type, int age, String vaccine, String vaccineDate, String species, double weight) {
         this.tag = tag;
         this.type = type;
         this.age = age;
         this.vaccine = vaccine;
         this.vaccineDate = vaccineDate;
         this.species = species;
+        this.weight = weight;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
     
-    public Animal(String name, String type, int age, String species){
-        this.name = name;
-        this.type = type;
-        this.age = age;
-        this.species = species;
-    }
 
     public String getName() {
         return name;

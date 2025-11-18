@@ -1,16 +1,19 @@
 package com.mycompany.cattleshuffle.Classes;
 import java.util.*;
 
-public class AnimalProducer {
+public class AnimalProducer extends Animal{
     private String producto;
     private int numProducido;
     private List<String> fechaProdicido;
     
-    public AnimalProducer(String producto, int numProducido, List<String> fechaProdicido) {
+    public AnimalProducer(String producto, int numProducido, List<String> fechaProdicido, String tag, String type, String vaccine, String vaccineDate, int age, String species, double weight) {
+        super(tag, type, age, vaccine, vaccineDate, species, weight);
         this.producto = producto;
         this.numProducido = numProducido;
         this.fechaProdicido = fechaProdicido;
     }
+    
+
 
     public String getProducto() {
         return this.producto;

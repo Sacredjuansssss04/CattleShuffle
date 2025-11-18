@@ -87,4 +87,21 @@ public class FileManager {
         }
         return false;
     }
+    
+    public static void saveAnimal(List<Animal> animals, Path route) throws IOException {
+        if (route.getParent() != null) {
+            Files.createDirectories(route.getParent());
+        }
+        return;
+    }
+    
+    public static List<AnimalBreeder> loadAnimals(Path route) throws IOException {
+        if (!Files.exists(route)) return new ArrayList<>();
+        
+        String content = Files.readString(route);
+        Type type = new TypeToken<List<AnimalBreeder>>(){}.getType();
+        List<AnimalBreeder> animals = json.fromJson(content, type);
+        
+        return animals != null ? animals : new ArrayList<>();   
+    }
 }

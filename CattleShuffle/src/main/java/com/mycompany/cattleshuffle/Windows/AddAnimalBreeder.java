@@ -1,7 +1,7 @@
 package com.mycompany.cattleshuffle.Windows;
 
 import javax.swing.JOptionPane;
-import com.mycompany.cattleshuffle.Classes.Animal;
+import com.mycompany.cattleshuffle.Classes.AnimalBreeder;
         
 public class AddAnimalBreeder extends javax.swing.JFrame {
     
@@ -9,7 +9,7 @@ public class AddAnimalBreeder extends javax.swing.JFrame {
     private double age;
     private double weight;
     private String name;
-    
+    private String tag;
     
     public AddAnimalBreeder() {
         initComponents();
@@ -31,6 +31,8 @@ public class AddAnimalBreeder extends javax.swing.JFrame {
         animalName = new javax.swing.JTextField();
         saveButton = new javax.swing.JButton();
         mainButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        animalTag = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -111,49 +113,61 @@ public class AddAnimalBreeder extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("ID:");
+
+        animalTag.setText("jTextField1");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(animalAge, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                    .addComponent(animalWeight)
-                    .addComponent(animalName))
-                .addGap(71, 71, 71))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(mainButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(saveButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(animalAge, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                    .addComponent(animalWeight)
+                    .addComponent(animalName)
+                    .addComponent(animalTag))
+                .addGap(71, 71, 71))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(39, 39, 39)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(animalAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(30, 30, 30)
+                    .addComponent(jLabel3)
+                    .addComponent(animalAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(animalWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(animalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(animalTag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mainButton)
                     .addComponent(saveButton))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 430, 300));
@@ -197,17 +211,32 @@ public class AddAnimalBreeder extends javax.swing.JFrame {
     }//GEN-LAST:event_animalNameActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        /*try{
+        try{
             double age = Double.parseDouble(animalAge.getText());
             double weight = Double.parseDouble(animalWeight.getText().trim());
             String name = animalName.getText().trim();
+            String tag = animalTag.getText().trim();
             
             if(name.isEmpty()){
                 JOptionPane.showMessageDialog(this, "El nombre no puede estar vacío");
                 return;
             }
+            AnimalBreeder animal = new AnimalBreeder(0, "", "none", "none", (int)0, "none", "none", "none", 0);
+            animal.setName(name);
+            animal.setWeight(weight);
+            animal.setTag(tag);
+            animal.setAge((int)age);
             
-        }*/ 
+            JOptionPane.showMessageDialog(this, "Animal registrado correctamente");
+            
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "Error, debes usar números válidos para edad y peso");
+            
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Error inesperado" + e.getMessage());
+        }
         //estaba tratando de hacer lo de guardar animal pero falta como coherencia con las clases
     }//GEN-LAST:event_saveButtonActionPerformed
 
@@ -239,8 +268,10 @@ public class AddAnimalBreeder extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField animalAge;
     private javax.swing.JTextField animalName;
+    private javax.swing.JTextField animalTag;
     private javax.swing.JTextField animalWeight;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

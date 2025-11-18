@@ -5,16 +5,12 @@ public class AnimalBreeder extends Animal{
     private int numBaby;
     private List<String> babyDate;
 
-    public AnimalBreeder(int numCrias, String fechaCrias, String tag, String type, int age, String vaccine, String vaccineDate, String species) {
-        super(tag, type, age, vaccine, vaccineDate, species);
+    public AnimalBreeder(int numCrias, String fechaCrias, String tag, String type, int age, String vaccine, String vaccineDate, String species, double weight) {
+        super(tag, type, age, vaccine, vaccineDate, species, weight);
         this.numBaby = numCrias;
         this.babyDate.add(fechaCrias);
     }
     
-    public AnimalBreeder(String tag, String type, int age, String species){ //VERIFICAR ESTO
-        super(tag, type, age, species);
-    }
-
     public int getNumBaby() {
         return this.numBaby;
     }
