@@ -10,6 +10,10 @@ public class AnimalBreeder extends Animal{
         this.numBaby = numCrias;
         this.babyDate.add(fechaCrias);
     }
+    
+    public AnimalBreeder(String tag, String type, int age, String species){ //VERIFICAR ESTO
+        super(tag, type, age, species);
+    }
 
     public int getNumBaby() {
         return this.numBaby;

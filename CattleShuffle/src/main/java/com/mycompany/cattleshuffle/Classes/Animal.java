@@ -8,6 +8,7 @@ public abstract class Animal {
     private String vaccine;
     private String vaccineDate;
     private String species;
+    private String name;
 
     public Animal(String tag, String type, int age, String vaccine, String vaccineDate, String species) {
         this.tag = tag;
@@ -17,6 +18,22 @@ public abstract class Animal {
         this.vaccineDate = vaccineDate;
         this.species = species;
     }
+    
+    public Animal(String name, String type, int age, String species){
+        this.name = name;
+        this.type = type;
+        this.age = age;
+        this.species = species;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     public String getTag() {
         return this.tag;
     }
