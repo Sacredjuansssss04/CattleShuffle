@@ -11,12 +11,9 @@ public abstract class Animal {
     private String name;
     private double weight;
 
-    public Animal(String tag, String type, int age, String vaccine, String vaccineDate, String species, double weight) {
+    public Animal(String tag, int age, String species, double weight) {
         this.tag = tag;
-        this.type = type;
         this.age = age;
-        this.vaccine = vaccine;
-        this.vaccineDate = vaccineDate;
         this.species = species;
         this.weight = weight;
     }

@@ -1,0 +1,11 @@
+[
+  {
+    "producto": "Leche",
+    "numProducido": 0,
+    "tag": "00003",
+    "age": 20,
+    "species": "Vaca",
+    "name": "Matilda",
+    "weight": 350.2
+  }
+]

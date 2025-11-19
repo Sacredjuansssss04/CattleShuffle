@@ -6,8 +6,12 @@ public class AnimalBreeder extends Animal{
     private List<String> babyDate;
 
     public AnimalBreeder(int numCrias, String fechaCrias, String tag, String type, int age, String vaccine, String vaccineDate, String species, double weight) {
-        super(tag, type, age, vaccine, vaccineDate, species, weight);
+        super(tag, age, species, weight);
         this.numBaby = numCrias;
+        
+        if(this.babyDate == null) {
+        this.babyDate = new ArrayList<>();
+        }
         this.babyDate.add(fechaCrias);
     }
     

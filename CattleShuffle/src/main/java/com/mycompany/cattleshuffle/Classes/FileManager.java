@@ -25,6 +25,7 @@ public class FileManager {
             StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
         }    
     }
+   
     
     public static List<UserData> read_user(Path route) throws IOException {
         if (!Files.exists(route)) return new ArrayList<>();
@@ -88,20 +89,62 @@ public class FileManager {
         return false;
     }
     
-    public static void saveAnimal(List<Animal> animals, Path route) throws IOException {
-        if (route.getParent() != null) {
-            Files.createDirectories(route.getParent());
-        }
-        return;
+    //se va a guardar los animales por cada tipo en archivos diferentes
+    //BREEDER
+    public static void saveBreeders(List<AnimalBreeder> animals, Path route) throws IOException {
+       if (route.getParent() != null) Files.createDirectories(route.getParent());
+
+        String toJson = json.toJson(animals);
+        Files.write(route, toJson.getBytes(StandardCharsets.UTF_8),
+                StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
     }
-    
-    public static List<AnimalBreeder> loadAnimals(Path route) throws IOException {
+     
+     public static List<AnimalBreeder> loadBreeders(Path route) throws IOException {
         if (!Files.exists(route)) return new ArrayList<>();
-        
+
         String content = Files.readString(route);
         Type type = new TypeToken<List<AnimalBreeder>>(){}.getType();
         List<AnimalBreeder> animals = json.fromJson(content, type);
-        
-        return animals != null ? animals : new ArrayList<>();   
+
+        return animals != null ? animals : new ArrayList<>();
     }
+     
+    //PRODUCER
+    public static void saveProducers(List<AnimalProducer> animals, Path route) throws IOException {
+        if (route.getParent() != null) Files.createDirectories(route.getParent());
+
+        String toJson = json.toJson(animals);
+        Files.write(route, toJson.getBytes(StandardCharsets.UTF_8),
+                StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+    }
+    
+    public static List<AnimalProducer> loadProducers(Path route) throws IOException {
+        if (!Files.exists(route)) return new ArrayList<>();
+
+        String content = Files.readString(route);
+        Type type = new TypeToken<List<AnimalProducer>>(){}.getType();
+        List<AnimalProducer> animals = json.fromJson(content, type);
+
+        return animals != null ? animals : new ArrayList<>();
+    }
+    
+    //FATTENING
+    public static void saveFattening(List<AnimalFattening> animals, Path route) throws IOException {
+        if (route.getParent() != null) Files.createDirectories(route.getParent());
+
+        String toJson = json.toJson(animals);
+        Files.write(route, toJson.getBytes(StandardCharsets.UTF_8),
+                StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+    }
+    
+    public static List<AnimalFattening> loadFattening(Path route) throws IOException {
+        if (!Files.exists(route)) return new ArrayList<>();
+
+        String content = Files.readString(route);
+        Type type = new TypeToken<List<AnimalFattening>>(){}.getType();
+        List<AnimalFattening> animals = json.fromJson(content, type);
+
+        return animals != null ? animals : new ArrayList<>();
+    }
+    
 }

@@ -2,6 +2,10 @@ package com.mycompany.cattleshuffle.Windows;
 
 import javax.swing.JOptionPane;
 import com.mycompany.cattleshuffle.Classes.AnimalBreeder;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import com.mycompany.cattleshuffle.Classes.FileManager;
+import java.util.List;
         
 public class AddAnimalBreeder extends javax.swing.JFrame {
     
@@ -10,6 +14,8 @@ public class AddAnimalBreeder extends javax.swing.JFrame {
     private double weight;
     private String name;
     private String tag;
+    private String species;
+    public static final Path BREEDER_PATH = Paths.get("data/animals/breeders.json");
     
     public AddAnimalBreeder() {
         initComponents();
@@ -33,6 +39,8 @@ public class AddAnimalBreeder extends javax.swing.JFrame {
         mainButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         animalTag = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        animalSpecie = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -117,16 +125,31 @@ public class AddAnimalBreeder extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("ID:");
 
-        animalTag.setText("jTextField1");
+        animalTag.setBackground(new java.awt.Color(255, 255, 255));
+        animalTag.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        animalTag.setForeground(new java.awt.Color(0, 0, 0));
+        animalTag.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                animalTagActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Especie:");
+
+        animalSpecie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                animalSpecieActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(32, 32, 32)
                 .addComponent(mainButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(37, 37, 37)
                 .addComponent(saveButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -135,13 +158,15 @@ public class AddAnimalBreeder extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(animalAge, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
                     .addComponent(animalWeight)
                     .addComponent(animalName)
-                    .addComponent(animalTag))
+                    .addComponent(animalTag)
+                    .addComponent(animalSpecie))
                 .addGap(71, 71, 71))
         );
         jPanel2Layout.setVerticalGroup(
@@ -155,22 +180,26 @@ public class AddAnimalBreeder extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(animalWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(animalSpecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(animalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(animalTag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mainButton)
                     .addComponent(saveButton))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(27, 27, 27))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 430, 300));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 430, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -221,13 +250,24 @@ public class AddAnimalBreeder extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "El nombre no puede estar vacío");
                 return;
             }
-            AnimalBreeder animal = new AnimalBreeder(0, "", "none", "none", (int)0, "none", "none", "none", 0);
+            AnimalBreeder animal = new AnimalBreeder(0, "none", "none", "none", (int)0, "none", "none", "none", 0);
             animal.setName(name);
             animal.setWeight(weight);
             animal.setTag(tag);
             animal.setAge((int)age);
+            animal.setSpecies(species);
             
-            JOptionPane.showMessageDialog(this, "Animal registrado correctamente");
+            List<AnimalBreeder> breeders = FileManager.loadBreeders(BREEDER_PATH);
+            breeders.add(animal);
+            FileManager.saveBreeders(breeders, BREEDER_PATH);
+            
+            JOptionPane.showMessageDialog(this, "Animal de crianza registrado correctamente");
+            
+            animalAge.setText("");
+            animalWeight.setText("");
+            animalName.setText("");
+            animalTag.setText("");
+            animalSpecie.setText("");
             
         }
         catch(NumberFormatException e){
@@ -237,8 +277,18 @@ public class AddAnimalBreeder extends javax.swing.JFrame {
         catch(Exception e){
             JOptionPane.showMessageDialog(this, "Error inesperado" + e.getMessage());
         }
-        //estaba tratando de hacer lo de guardar animal pero falta como coherencia con las clases
+        
     }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void animalTagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_animalTagActionPerformed
+        this.tag = animalTag.getText().trim();
+        System.out.println(this.tag);
+    }//GEN-LAST:event_animalTagActionPerformed
+
+    private void animalSpecieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_animalSpecieActionPerformed
+        this.species = animalSpecie.getText().trim();
+        System.out.println(this.species);
+    }//GEN-LAST:event_animalSpecieActionPerformed
 
     /**
      * @param args the command line arguments
@@ -268,6 +318,7 @@ public class AddAnimalBreeder extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField animalAge;
     private javax.swing.JTextField animalName;
+    private javax.swing.JTextField animalSpecie;
     private javax.swing.JTextField animalTag;
     private javax.swing.JTextField animalWeight;
     private javax.swing.JLabel jLabel1;
@@ -275,6 +326,7 @@ public class AddAnimalBreeder extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton mainButton;

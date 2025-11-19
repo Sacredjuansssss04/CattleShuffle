@@ -1,15 +1,18 @@
 package com.mycompany.cattleshuffle.Classes;
 
+import java.util.ArrayList;
+
 public class AnimalFattening extends Animal{
     private double initialWeight;
     private double finalWeight;
     private String arrivalDate;
 
     public AnimalFattening(double initialWeight, double finalWeight, String arrivalDate, String tag, String type, int age, String vaccine, String vaccineDate, String species, double weight) {
-        super(tag, type, age, vaccine, vaccineDate, species, weight);
+        super(tag, age, species, weight);
         this.initialWeight = initialWeight;
         this.finalWeight = finalWeight;
         this.arrivalDate = arrivalDate;
+        
     }
     
 

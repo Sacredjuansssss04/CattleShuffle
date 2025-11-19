@@ -10,6 +10,9 @@ import java.nio.file.Path;
 public class Routes {
     
     private static final String finalRoute = "data/usuarios.json";
+    private static final String breederRoute = "data/breeder.json";
+    private static final String fatteningRoute = "data/fattening.json";
+    private static final String producerRoute = "data/producer.json";
     
     public static Path exact_route(String route){
         Objects.requireNonNull(route, "La ruta no puede ser nula");
@@ -21,6 +24,18 @@ public class Routes {
 
     public static String getFinalRoute() {
         return finalRoute;
+    }
+
+    public static String getBreederRoute() {
+        return breederRoute;
+    }
+
+    public static String getFatteningRoute() {
+        return fatteningRoute;
+    }
+
+    public static String getProducerRoute() {
+        return producerRoute;
     }
     
 }
