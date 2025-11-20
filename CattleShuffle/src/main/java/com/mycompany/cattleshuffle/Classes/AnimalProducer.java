@@ -37,5 +37,6 @@ public class AnimalProducer extends Animal{
     public void setFechaProdicido(List<String> fechaProdicido) {
         this.fechaProdicido = fechaProdicido;
     }
+
     
 }

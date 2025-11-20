@@ -1,12 +1,21 @@
 package com.mycompany.cattleshuffle.Windows;
+import com.mycompany.cattleshuffle.Classes.AnimalBreeder;
+import com.mycompany.cattleshuffle.Classes.AnimalFattening;
+import com.mycompany.cattleshuffle.Classes.AnimalProducer;
+import com.mycompany.cattleshuffle.Classes.FileManager;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
+import java.nio.file.Paths;
+import java.nio.file.Path;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import java.util.List;
 
 public class Filter extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Filter.class.getName());
+    private final Path breedersPath = Paths.get("data/animals/breeders.json");
+    private final Path producerPath = Paths.get("data/animals/producer.json");
+    private final Path fatteningPath = Paths.get("data/animals/fattening.json");
     
     public Filter() {
         initComponents();
@@ -69,6 +78,7 @@ public class Filter extends javax.swing.JFrame {
         typeFilter = new javax.swing.JComboBox<>();
         filterButton = new javax.swing.JButton();
         mainButton = new javax.swing.JButton();
+        registerButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -123,7 +133,7 @@ public class Filter extends javax.swing.JFrame {
 
         selectButton.setBackground(new java.awt.Color(153, 204, 255));
         selectButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        selectButton.setText("Seleccionar");
+        selectButton.setText("Seleccionar todos");
         selectButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 selectButtonActionPerformed(evt);
@@ -156,29 +166,41 @@ public class Filter extends javax.swing.JFrame {
             }
         });
 
+        registerButton.setBackground(new java.awt.Color(153, 255, 153));
+        registerButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        registerButton.setForeground(new java.awt.Color(0, 0, 0));
+        registerButton.setText("Registrar");
+        registerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(mainButton)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(typeFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(88, 88, 88)
-                                .addComponent(filterButton))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(184, 184, 184)
-                                .addComponent(idAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(registerButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(mainButton))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(selectButton))
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(typeFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(88, 88, 88)
+                            .addComponent(filterButton))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGap(184, 184, 184)
+                            .addComponent(idAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(selectButton))
+                    .addComponent(jScrollPane2))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -199,11 +221,13 @@ public class Filter extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(mainButton)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mainButton)
+                    .addComponent(registerButton))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 440, 400));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 440, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -220,12 +244,78 @@ public class Filter extends javax.swing.JFrame {
     }//GEN-LAST:event_idAnimalActionPerformed
 
     private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
-        // TODO add your handling code here:
+        StringBuilder sb = new StringBuilder("Todos los animales registrados:\n");
+
+    try {
+        // Cargar de producción
+        List<AnimalProducer> producers = FileManager.loadProducers(producerPath);
+        for (AnimalProducer a : producers) {
+            sb.append(a.getTag()).append(" - ").append(a.getName()).append(" - Producer\n");
+        }
+
+        // Cargar de crianza
+        List<AnimalBreeder> breeders = FileManager.loadBreeders(breedersPath);
+        for (AnimalBreeder a : breeders) {
+            sb.append(a.getTag()).append(" - ").append(a.getName()).append(" - Breeder\n");
+        }
+
+        // Cargar de engorde
+        List<AnimalFattening> fattenings = FileManager.loadFattening(fatteningPath);
+        for (AnimalFattening a : fattenings) {
+            sb.append(a.getTag()).append(" - ").append(a.getName()).append(" - Fattening\n");
+        }
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error cargando los animales: " + e.getMessage(),
+                "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    resultsText.setText(sb.toString());
         
     }//GEN-LAST:event_selectButtonActionPerformed
 
     private void filterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterButtonActionPerformed
-        // TODO add your handling code here:
+        String idSearch = idAnimal.getText().trim();
+        String typeSelected = (String) typeFilter.getSelectedItem();
+
+        StringBuilder sb = new StringBuilder("Resultados:\n");
+        
+        try {
+        // PRODUCER
+        if (typeSelected.equals("Tipo") || typeSelected.equals("producción de bienes")) {
+            List<AnimalProducer> producer = FileManager.loadProducers(producerPath);
+            System.out.println("Producers cargados: " + producer.size());
+            for (AnimalProducer a : producer) {
+                if (idSearch.equals("Buscar") || idSearch.isEmpty() || a.getTag().equalsIgnoreCase(idSearch)) {
+                    
+                    sb.append(a.getTag()).append(" - ").append(a.getName()).append(" - Producer\n");
+                }
+            }
+        }
+        if (typeSelected.equals("Tipo") || typeSelected.equals("Reproducción")) {
+            List<AnimalBreeder> breeders = FileManager.loadBreeders(breedersPath);
+            for (AnimalBreeder a : breeders) {
+                if (idSearch.equals("Buscar") || idSearch.isEmpty() || a.getTag().equalsIgnoreCase(idSearch)) {
+                    sb.append(a.getTag()).append(" - ").append(a.getName()).append(" - Breeder\n");
+                }
+            }
+        }
+        // FATTENING
+        if (typeSelected.equals("Tipo") || typeSelected.equals("Engorde")) {
+            List<AnimalFattening> fattenings = FileManager.loadFattening(fatteningPath);
+            for (AnimalFattening a : fattenings) {
+                if (idSearch.equals("Buscar") || idSearch.isEmpty() || a.getTag().equalsIgnoreCase(idSearch)) {
+                    sb.append(a.getTag()).append(" - ").append(a.getName()).append(" - Fattening\n");
+                }
+            }
+        }
+        } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error cargando los animales: " + e.getMessage(),
+                "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+        }
+        resultsText.setText(sb.toString());
 
     }//GEN-LAST:event_filterButtonActionPerformed
 
@@ -240,6 +330,47 @@ public class Filter extends javax.swing.JFrame {
         ventana.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_mainButtonActionPerformed
+
+    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
+        String id = idAnimal.getText().trim();
+        if(id.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Debes escribir un ID para buscar el animal.");
+            return;
+        }
+        
+        try{
+        List<AnimalProducer> producers = FileManager.loadProducers(producerPath);
+        List<AnimalBreeder> breeders = FileManager.loadBreeders(breedersPath);
+        List<AnimalFattening> fattenings = FileManager.loadFattening(fatteningPath);
+        
+        for(AnimalProducer a : producers){
+            if(a.getTag().equalsIgnoreCase(id)){
+                new RegisterProducts(a).setVisible(true);
+                return;
+            }
+        }
+        for(AnimalBreeder a : breeders){
+            if(a.getTag().equalsIgnoreCase(id)){
+                new RegisterBreeders(a).setVisible(true);
+                return;
+            }
+        }
+        
+        for(AnimalFattening a : fattenings){
+            if(a.getTag().equalsIgnoreCase(id)){
+                new RegisterFattening(a).setVisible(true);
+                return;
+            }
+        }
+        
+        JOptionPane.showMessageDialog(this, "No se encontró ningún animal con ese ID.");
+
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(this, "Error al abrir ventana: " + e.getMessage());
+        }
+
+        
+    }//GEN-LAST:event_registerButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -276,6 +407,7 @@ public class Filter extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton mainButton;
+    private javax.swing.JButton registerButton;
     private javax.swing.JTextArea resultsText;
     private javax.swing.JButton selectButton;
     private javax.swing.JComboBox<String> typeFilter;
