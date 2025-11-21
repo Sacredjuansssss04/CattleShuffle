@@ -141,7 +141,7 @@ public class Filter extends javax.swing.JFrame {
         });
 
         typeFilter.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        typeFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo", "producción de bienes", "Reproducción", "Engorde" }));
+        typeFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo", "Producción de bienes", "Reproducción", "Engorde" }));
         typeFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 typeFilterActionPerformed(evt);
@@ -280,7 +280,11 @@ public class Filter extends javax.swing.JFrame {
         String typeSelected = (String) typeFilter.getSelectedItem();
 
         StringBuilder sb = new StringBuilder("Resultados:\n");
-        
+        String id = idAnimal.getText().trim();
+        if(id.isEmpty() || id.equalsIgnoreCase("Buscar")){
+            JOptionPane.showMessageDialog(this, "Debes escribir un ID válido para buscar el animal.");
+            return;
+        }
         try {
         // PRODUCER
         if (typeSelected.equals("Tipo") || typeSelected.equals("producción de bienes")) {
@@ -332,35 +336,29 @@ public class Filter extends javax.swing.JFrame {
     }//GEN-LAST:event_mainButtonActionPerformed
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        String id = idAnimal.getText().trim();
-        if(id.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Debes escribir un ID para buscar el animal.");
-            return;
-        }
-        
+  
         try{
         List<AnimalProducer> producers = FileManager.loadProducers(producerPath);
         List<AnimalBreeder> breeders = FileManager.loadBreeders(breedersPath);
         List<AnimalFattening> fattenings = FileManager.loadFattening(fatteningPath);
         
         for(AnimalProducer a : producers){
-            if(a.getTag().equalsIgnoreCase(id)){
                 new RegisterProducts(a).setVisible(true);
+                this.dispose();
                 return;
-            }
+          
         }
         for(AnimalBreeder a : breeders){
-            if(a.getTag().equalsIgnoreCase(id)){
                 new RegisterBreeders(a).setVisible(true);
+                this.dispose();
                 return;
-            }
+            
         }
         
         for(AnimalFattening a : fattenings){
-            if(a.getTag().equalsIgnoreCase(id)){
                 new RegisterFattening(a).setVisible(true);
+                this.dispose();
                 return;
-            }
         }
         
         JOptionPane.showMessageDialog(this, "No se encontró ningún animal con ese ID.");
@@ -369,7 +367,6 @@ public class Filter extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error al abrir ventana: " + e.getMessage());
         }
 
-        
     }//GEN-LAST:event_registerButtonActionPerformed
 
     /**
